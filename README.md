@@ -2,6 +2,8 @@
 
 **Did expected warnings appear during IBM Research SRE fault experiments?** The main demo audits the public ITBench-Lite alert snapshots against each experiment's declared expected alerts. It distinguishes observed, not observed, and unknown evidence, and links directly to IBM's original ground truth and alert snapshots. This is a practical SRE test-quality report, not IBM production telemetry or evidence that anyone was paged. Related alert and chaos-test tooling already exists; the project does not claim to be the first to solve this problem.
 
+**Live demo:** [jasonx12345.github.io/IBM-SRE-Demo](https://jasonx12345.github.io/IBM-SRE-Demo/)
+
 ![Alert coverage report](docs/coverage-lab.png)
 
 ## Run the internship demo
