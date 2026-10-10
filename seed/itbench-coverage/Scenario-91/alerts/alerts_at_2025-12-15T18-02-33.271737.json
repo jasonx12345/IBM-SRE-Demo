@@ -1,0 +1,124 @@
+[
+    {
+        "labels": {
+            "alertname": "PrometheusNotConnectedToAlertmanagers",
+            "container": "prometheus",
+            "endpoint": "http-web",
+            "instance": "100.96.4.26:9090",
+            "job": "prometheus-kube-prometheus-prometheus",
+            "namespace": "prometheus",
+            "pod": "prometheus-prometheus-kube-prometheus-prometheus-0",
+            "service": "prometheus-kube-prometheus-prometheus",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Prometheus prometheus/prometheus-prometheus-kube-prometheus-prometheus-0 is not connected to any Alertmanagers.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusnotconnectedtoalertmanagers",
+            "summary": "Prometheus is not connected to any Alertmanagers."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:36:27.833875901Z",
+        "value": "0e+00"
+    },
+    {
+        "labels": {
+            "alertname": "Watchdog",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+            "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:35:50.538564674Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "InfoInhibitor",
+            "alertstate": "firing",
+            "container": "frontend",
+            "instance": "10.0.157.102:10250",
+            "namespace": "otel-demo",
+            "pod": "frontend-675fd7b5c5-ssc7t",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert that is used to inhibit info alerts.\nBy themselves, the info-level alerts are sometimes very noisy, but they are relevant when combined with\nother alerts.\nThis alert fires whenever there's a severity=\"info\" alert, and stops firing when another alert with a\nseverity of 'warning' or 'critical' starts firing on the same namespace.\nThis alert should be routed to a null receiver and configured to inhibit alerts with severity=\"info\".\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/infoinhibitor",
+            "summary": "Info-level alert inhibition."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T18:02:20.538564674Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "InfoInhibitor",
+            "alertstate": "pending",
+            "container": "cart",
+            "instance": "10.0.157.102:10250",
+            "namespace": "otel-demo",
+            "pod": "cart-755465879b-pbwt7",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert that is used to inhibit info alerts.\nBy themselves, the info-level alerts are sometimes very noisy, but they are relevant when combined with\nother alerts.\nThis alert fires whenever there's a severity=\"info\" alert, and stops firing when another alert with a\nseverity of 'warning' or 'critical' starts firing on the same namespace.\nThis alert should be routed to a null receiver and configured to inhibit alerts with severity=\"info\".\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/infoinhibitor",
+            "summary": "Info-level alert inhibition."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T18:02:20.538564674Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "KubeControllerManagerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:35:46.754961866Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "CPUThrottlingHigh",
+            "container": "frontend",
+            "instance": "10.0.157.102:10250",
+            "namespace": "otel-demo",
+            "pod": "frontend-675fd7b5c5-ssc7t",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "info"
+        },
+        "annotations": {
+            "description": "29.82% throttling of CPU in namespace otel-demo for container frontend in pod frontend-675fd7b5c5-ssc7t on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/cputhrottlinghigh",
+            "summary": "Processes experience elevated CPU throttling."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:36:35.885227115Z",
+        "value": "2.982456140350877e-01"
+    },
+    {
+        "labels": {
+            "alertname": "KubeSchedulerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:35:51.060294696Z",
+        "value": "1e+00"
+    }
+]

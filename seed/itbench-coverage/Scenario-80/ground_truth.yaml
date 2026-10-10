@@ -1,0 +1,64 @@
+---
+metadata:
+  version: "v1"
+fault:
+  - entity:
+      name: otel-demo-checkout-kafka-network-partition
+      group_id: otel-demo-checkout-kafka-network-partition
+      kind: NetworkChaos
+    condition: Chaos Mesh network partition blocking checkout pods from reaching Kafka
+    category: Network
+    fault_mechanism: network_partition
+alerts:
+  - id: KafkaConnectionClosureRate
+    group_id: checkout-service-1
+    metadata:
+      description: Checkout service experiencing high Kafka connection closure rate due to network partition
+  - id: RequestLatency
+    group_id: checkout-service-1
+    metadata:
+      description: Checkout service experiencing increased latency due to Kafka connection issues
+groups:
+  - id: otel-demo-checkout-kafka-network-partition
+    kind: NetworkChaos
+    filter:
+      - otel-demo-checkout-kafka-network-partition
+    namespace: chaos-mesh
+    root_cause: true
+  - id: checkout-pod-1
+    kind: Pod
+    filter:
+      - checkout-.*
+    namespace: otel-demo
+  - id: checkout-service-1
+    kind: Service
+    filter:
+      - checkout\b
+    namespace: otel-demo
+  - id: kafka-service-1
+    kind: Service
+    filter:
+      - kafka\b
+    namespace: otel-demo
+aliases:
+  - - checkout-service-1
+    - checkout-pod-1
+propagations:
+  - source: otel-demo-checkout-kafka-network-partition
+    target: checkout-pod-1
+    condition: Chaos Mesh NetworkChaos resource injects network partition affecting checkout pods
+    effect: Checkout pods cannot establish or maintain connections to Kafka
+  - source: checkout-pod-1
+    target: checkout-service-1
+    condition: Checkout pods cannot communicate with Kafka due to network partition
+    effect: Checkout service cannot publish order events to Kafka, but continues processing orders
+  - source: checkout-service-1
+    target: kafka-service-1
+    condition: Network partition prevents checkout service from communicating with Kafka
+    effect: Order events are not published to Kafka queue, downstream services miss order notifications
+recommended_actions:
+  - solution:
+      id: resolve_network_partition
+      actions:
+        - Identify and resolve network partition between checkout and Kafka pods
+        - Verify network policies and connectivity between the services

@@ -1,0 +1,128 @@
+---
+metadata:
+  version: "v1"
+fault:
+  - entity:
+      name: delay-otel-demo-product-catalog-1
+      group_id: delay-otel-demo-product-catalog-1
+      kind: Service
+    condition: To Be Specified
+    category: Latency
+    fault_mechanism: chaos
+alerts:
+  - id: RequestLatency
+    group_id: frontend-service-1
+    metadata:
+      description: Latency is Above Threshold
+  - id: RequestLatency
+    group_id: recommendation-service-1
+    metadata:
+      description: Latency is Above Threshold
+  - id: RequestLatency
+    group_id: checkout-service-1
+    metadata:
+      description: Latency is Above Threshold
+  - id: RequestLatency
+    group_id: productcatalog-service-1
+    metadata:
+      description: Latency is Above Threshold
+  - id: RequestLatency
+    group_id: frontendproxy-service-1
+    metadata:
+      description: Latency is Above Threshold
+  - id: RequestErrorRate
+    group_id: frontend-service-1
+    metadata:
+      description: Error Rate is Above Threshold
+  - id: RequestErrorRate
+    group_id: checkout-service-1
+    metadata:
+      description: Error Rate is Above Threshold
+  - id: RequestErrorRate
+    group_id: recommendation-service-1
+    metadata:
+      description: Error Rate is Above Threshold
+groups:
+  - id: delay-otel-demo-product-catalog-1
+    kind: NetworkChaos
+    filter: 
+    - .*product-catalog
+    namespace: chaos-mesh
+    root_cause: true
+  - id: productcatalog-service-1
+    kind: Service
+    filter: 
+    - product-catalog\b
+    namespace: otel-demo
+  - id: checkout-service-1
+    kind: Service
+    filter: 
+    - checkout\b
+    namespace: otel-demo
+  - id: recommendation-service-1
+    filter: 
+    - recommendation\b
+    kind: Service
+    namespace: otel-demo
+  - id: frontend-service-1
+    kind: Service
+    filter: 
+    - frontend\b
+    namespace: otel-demo
+  - id: frontendproxy-service-1
+    kind: Service
+    filter: 
+    - frontend-proxy\b
+    namespace: otel-demo
+  - id: frontend-pod-1
+    kind: Pod
+    namespace: otel-demo
+    filter:
+    - frontend-.*
+  - id: productcatalog-pod-1
+    kind: Pod
+    namespace: otel-demo
+    filter:
+    - product-catalog-.*
+  - id: checkout-pod-1
+    kind: Pod
+    namespace: otel-demo
+    filter:
+    - checkout-.*
+  - id: recommendation-pod-1
+    kind: Pod
+    filter:
+    - recommendation-.*
+    namespace: otel-demo
+aliases:
+  - - frontend-service-1
+    - frontend-pod-1
+  - - productcatalog-service-1
+    - productcatalog-pod-1
+  - - checkout-service-1
+    - checkout-pod-1
+  - - recommendation-service-1
+    - recommendation-pod-1
+propagations:
+  - source: delay-otel-demo-product-catalog-1
+    target: productcatalog-service-1
+    condition: delay-otel-demo-productcatalogservice networkchaos productcatalogservice
+      network delay set to 20 seconds
+    effect: productcatalog service Error Rate is Above Threshold
+  - source: productcatalog-service-1
+    target: checkout-service-1
+    condition: Latency is too high or Error Rate is Above Threshold
+    effect: checkout service Error Rate is Above Threshold
+  - source: productcatalog-service-1
+    target: recommendation-service-1
+    condition: Latency is too high or Error Rate is Above Threshold
+    effect: recommendation service Error Rate is Above Threshold
+  - source: productcatalog-service-1
+    target: frontend-service-1
+    condition: Latency is too high or Error Rate is Above Threshold
+    effect: frontend service Error Rate is Above Threshold
+recommended_actions:
+  - solution:
+      id: Delete_the_resource_networkchaos_productcatalogservice
+      actions:
+        - Delete the resource networkchaos productcatalogservice

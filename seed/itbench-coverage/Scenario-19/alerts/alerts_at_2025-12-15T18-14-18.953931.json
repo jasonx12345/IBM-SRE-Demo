@@ -1,0 +1,168 @@
+[
+    {
+        "labels": {
+            "alertname": "CPUThrottlingHigh",
+            "container": "postgresql",
+            "instance": "10.0.154.90:10250",
+            "namespace": "otel-demo",
+            "pod": "postgresql-c7fd45b87-r4scw",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "info"
+        },
+        "annotations": {
+            "description": "34.68% throttling of CPU in namespace otel-demo for container postgresql in pod postgresql-c7fd45b87-r4scw on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/cputhrottlinghigh",
+            "summary": "Processes experience elevated CPU throttling."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:55:22.769267615Z",
+        "value": "3.467741935483871e-01"
+    },
+    {
+        "labels": {
+            "alertname": "Watchdog",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+            "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:27:20.039305106Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "KubeControllerManagerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:27:40.881754464Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "PrometheusNotConnectedToAlertmanagers",
+            "container": "prometheus",
+            "endpoint": "http-web",
+            "instance": "100.96.3.47:9090",
+            "job": "prometheus-kube-prometheus-prometheus",
+            "namespace": "prometheus",
+            "pod": "prometheus-prometheus-kube-prometheus-prometheus-0",
+            "service": "prometheus-kube-prometheus-prometheus",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Prometheus prometheus/prometheus-prometheus-kube-prometheus-prometheus-0 is not connected to any Alertmanagers.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusnotconnectedtoalertmanagers",
+            "summary": "Prometheus is not connected to any Alertmanagers."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:28:13.600907776Z",
+        "value": "0e+00"
+    },
+    {
+        "labels": {
+            "alertname": "RequestLatency",
+            "namespace": "otel-demo",
+            "service_name": "shipping",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Latency in service shipping in namespace otel-demo is above 1500ms (current: 9714.84375s)"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:55:06.920785651Z",
+        "value": "9.71484375e+03"
+    },
+    {
+        "labels": {
+            "alertname": "RequestLatency",
+            "namespace": "otel-demo",
+            "service_name": "checkout",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Latency in service checkout in namespace otel-demo is above 1500ms (current: 9276.960784313724s)"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:55:06.920785651Z",
+        "value": "9.276960784313724e+03"
+    },
+    {
+        "labels": {
+            "alertname": "RequestErrorRate",
+            "namespace": "otel-demo",
+            "service_name": "frontend-proxy",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Request error rate in service frontend-proxy in namespace otel-demo is above 0 (current: 0.7333333333333332)"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:53:06.920785651Z",
+        "value": "7.333333333333332e-01"
+    },
+    {
+        "labels": {
+            "alertname": "RequestErrorRate",
+            "namespace": "otel-demo",
+            "service_name": "frontend",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Request error rate in service frontend in namespace otel-demo is above 0 (current: 1.422222222222222)"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:54:06.920785651Z",
+        "value": "1.422222222222222e+00"
+    },
+    {
+        "labels": {
+            "alertname": "RequestErrorRate",
+            "namespace": "otel-demo",
+            "service_name": "shipping",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Request error rate in service shipping in namespace otel-demo is above 0 (current: 0.711111111111111)"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:55:06.920785651Z",
+        "value": "7.11111111111111e-01"
+    },
+    {
+        "labels": {
+            "alertname": "RequestErrorRate",
+            "namespace": "otel-demo",
+            "service_name": "checkout",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Request error rate in service checkout in namespace otel-demo is above 0 (current: 0.7555555555555554)"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:55:06.920785651Z",
+        "value": "7.555555555555554e-01"
+    },
+    {
+        "labels": {
+            "alertname": "KubeSchedulerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:27:38.13439126Z",
+        "value": "1e+00"
+    }
+]

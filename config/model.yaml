@@ -1,0 +1,8 @@
+# TUNABLE assumptions; these are included in API responses and shown in the UI.
+timezone: America/Toronto
+business_hours_start: 9
+business_hours_end: 17
+# Upper-bound gross savings; excludes build/maintenance time. No savings for tuning.
+automation_savings_fraction: 1.0
+deletion_savings_fraction: 1.0
+cache_seconds: 15

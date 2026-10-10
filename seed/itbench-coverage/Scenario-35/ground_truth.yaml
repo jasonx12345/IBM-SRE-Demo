@@ -1,0 +1,81 @@
+---
+metadata:
+  version: "v1"
+fault:
+  - entity:
+      name: otel-demo-ad-jvm-chaos
+      group_id: otel-demo-ad-jvm-chaos
+      kind: JVMChaos
+    condition: Chaos Mesh JVM stress injecting heap memory pressure on ad service
+    category: Resource
+    fault_mechanism: jvm_heap_stress
+alerts:
+  - id: RequestLatency
+    group_id: ad-service-1
+    metadata:
+      description: Ad service experiencing increased response times due to memory pressure
+  - id: RequestErrorRate
+    group_id: frontend-service-1
+    metadata:
+      description: Frontend service experiencing timeouts or errors when calling ad service
+  - id: RequestLatency
+    group_id: frontend-service-1
+    metadata:
+      description: Frontend service experiencing increased latency waiting for ad service responses
+  - id: RequestLatency
+    group_id: frontend-proxy-service-1
+    metadata:
+      description: Frontend proxy experiencing increased latency serving pages with slow ad responses
+groups:
+  - id: otel-demo-ad-jvm-chaos
+    kind: JVMChaos
+    filter:
+      - otel-demo-ad-jvm-chaos
+    namespace: chaos-mesh
+    root_cause: true
+  - id: ad-pod-1
+    kind: Pod
+    filter:
+      - ad-.*
+    namespace: otel-demo
+  - id: ad-service-1
+    kind: Service
+    filter:
+      - ad\b
+    namespace: otel-demo
+  - id: frontend-service-1
+    kind: Service
+    filter:
+      - frontend\b
+    namespace: otel-demo
+  - id: frontend-proxy-service-1
+    kind: Service
+    filter:
+      - frontend-proxy\b
+    namespace: otel-demo
+aliases:
+  - - ad-service-1
+    - ad-pod-1
+propagations:
+  - source: otel-demo-ad-jvm-chaos
+    target: ad-pod-1
+    condition: Chaos Mesh JVMChaos resource injects heap memory stress on ad service JVM
+    effect: Ad pods experience high heap memory usage and frequent garbage collection
+  - source: ad-pod-1
+    target: ad-service-1
+    condition: Ad pods under memory pressure respond slowly or fail requests
+    effect: Ad service experiences degraded performance with high latency and potential timeouts
+  - source: ad-service-1
+    target: frontend-service-1
+    condition: Frontend service calls to ad service timeout or return slowly
+    effect: Frontend pages load slowly or without advertisements, degrading user experience
+  - source: frontend-service-1
+    target: frontend-proxy-service-1
+    condition: Frontend service returns slow responses to proxy due to ad service delays
+    effect: Users experience slow page loads through the proxy
+recommended_actions:
+  - solution:
+      id: resolve_jvm_chaos
+      actions:
+        - Identify and stop the JVM chaos experiment affecting ad service
+        - Monitor ad service heap memory usage and garbage collection metrics

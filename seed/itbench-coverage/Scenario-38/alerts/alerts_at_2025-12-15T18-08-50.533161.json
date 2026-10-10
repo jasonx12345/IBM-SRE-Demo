@@ -1,0 +1,318 @@
+[
+    {
+        "labels": {
+            "alertname": "KubeSchedulerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:33:50.084660665Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "PrometheusNotConnectedToAlertmanagers",
+            "container": "prometheus",
+            "endpoint": "http-web",
+            "instance": "100.96.3.221:9090",
+            "job": "prometheus-kube-prometheus-prometheus",
+            "namespace": "prometheus",
+            "pod": "prometheus-prometheus-kube-prometheus-prometheus-0",
+            "service": "prometheus-kube-prometheus-prometheus",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Prometheus prometheus/prometheus-prometheus-kube-prometheus-prometheus-0 is not connected to any Alertmanagers.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusnotconnectedtoalertmanagers",
+            "summary": "Prometheus is not connected to any Alertmanagers."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:34:07.185026558Z",
+        "value": "0e+00"
+    },
+    {
+        "labels": {
+            "alertname": "KubeHpaMaxedOut",
+            "container": "kube-state-metrics",
+            "endpoint": "http",
+            "horizontalpodautoscaler": "shipping",
+            "instance": "100.96.3.92:8080",
+            "job": "kube-state-metrics",
+            "namespace": "otel-demo",
+            "pod": "prometheus-kube-state-metrics-7c5fb9d798-tfwh8",
+            "service": "prometheus-kube-state-metrics",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "HPA otel-demo/shipping has been running at max replicas for longer than 15 minutes on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubehpamaxedout",
+            "summary": "HPA is running at max replicas"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:34:15.10834109Z",
+        "value": "1e+01"
+    },
+    {
+        "labels": {
+            "alertname": "KubeHpaMaxedOut",
+            "container": "kube-state-metrics",
+            "endpoint": "http",
+            "horizontalpodautoscaler": "image-provider",
+            "instance": "100.96.3.92:8080",
+            "job": "kube-state-metrics",
+            "namespace": "otel-demo",
+            "pod": "prometheus-kube-state-metrics-7c5fb9d798-tfwh8",
+            "service": "prometheus-kube-state-metrics",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "HPA otel-demo/image-provider has been running at max replicas for longer than 15 minutes on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubehpamaxedout",
+            "summary": "HPA is running at max replicas"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:34:15.10834109Z",
+        "value": "1e+01"
+    },
+    {
+        "labels": {
+            "alertname": "KubeHpaMaxedOut",
+            "container": "kube-state-metrics",
+            "endpoint": "http",
+            "horizontalpodautoscaler": "payment",
+            "instance": "100.96.3.92:8080",
+            "job": "kube-state-metrics",
+            "namespace": "otel-demo",
+            "pod": "prometheus-kube-state-metrics-7c5fb9d798-tfwh8",
+            "service": "prometheus-kube-state-metrics",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "HPA otel-demo/payment has been running at max replicas for longer than 15 minutes on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubehpamaxedout",
+            "summary": "HPA is running at max replicas"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:34:15.10834109Z",
+        "value": "1e+01"
+    },
+    {
+        "labels": {
+            "alertname": "KubeHpaMaxedOut",
+            "container": "kube-state-metrics",
+            "endpoint": "http",
+            "horizontalpodautoscaler": "fraud-detection",
+            "instance": "100.96.3.92:8080",
+            "job": "kube-state-metrics",
+            "namespace": "otel-demo",
+            "pod": "prometheus-kube-state-metrics-7c5fb9d798-tfwh8",
+            "service": "prometheus-kube-state-metrics",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "HPA otel-demo/fraud-detection has been running at max replicas for longer than 15 minutes on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubehpamaxedout",
+            "summary": "HPA is running at max replicas"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:34:15.10834109Z",
+        "value": "1e+01"
+    },
+    {
+        "labels": {
+            "alertname": "KubeHpaMaxedOut",
+            "container": "kube-state-metrics",
+            "endpoint": "http",
+            "horizontalpodautoscaler": "kafka",
+            "instance": "100.96.3.92:8080",
+            "job": "kube-state-metrics",
+            "namespace": "otel-demo",
+            "pod": "prometheus-kube-state-metrics-7c5fb9d798-tfwh8",
+            "service": "prometheus-kube-state-metrics",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "HPA otel-demo/kafka has been running at max replicas for longer than 15 minutes on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubehpamaxedout",
+            "summary": "HPA is running at max replicas"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:34:15.10834109Z",
+        "value": "1e+01"
+    },
+    {
+        "labels": {
+            "alertname": "KubeHpaMaxedOut",
+            "container": "kube-state-metrics",
+            "endpoint": "http",
+            "horizontalpodautoscaler": "frontend",
+            "instance": "100.96.3.92:8080",
+            "job": "kube-state-metrics",
+            "namespace": "otel-demo",
+            "pod": "prometheus-kube-state-metrics-7c5fb9d798-tfwh8",
+            "service": "prometheus-kube-state-metrics",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "HPA otel-demo/frontend has been running at max replicas for longer than 15 minutes on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubehpamaxedout",
+            "summary": "HPA is running at max replicas"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:34:45.10834109Z",
+        "value": "1e+01"
+    },
+    {
+        "labels": {
+            "alertname": "KubeHpaMaxedOut",
+            "container": "kube-state-metrics",
+            "endpoint": "http",
+            "horizontalpodautoscaler": "cart",
+            "instance": "100.96.3.92:8080",
+            "job": "kube-state-metrics",
+            "namespace": "otel-demo",
+            "pod": "prometheus-kube-state-metrics-7c5fb9d798-tfwh8",
+            "service": "prometheus-kube-state-metrics",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "HPA otel-demo/cart has been running at max replicas for longer than 15 minutes on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubehpamaxedout",
+            "summary": "HPA is running at max replicas"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:34:15.10834109Z",
+        "value": "1e+01"
+    },
+    {
+        "labels": {
+            "alertname": "KubeHpaMaxedOut",
+            "container": "kube-state-metrics",
+            "endpoint": "http",
+            "horizontalpodautoscaler": "ad",
+            "instance": "100.96.3.92:8080",
+            "job": "kube-state-metrics",
+            "namespace": "otel-demo",
+            "pod": "prometheus-kube-state-metrics-7c5fb9d798-tfwh8",
+            "service": "prometheus-kube-state-metrics",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "HPA otel-demo/ad has been running at max replicas for longer than 15 minutes on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubehpamaxedout",
+            "summary": "HPA is running at max replicas"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:34:15.10834109Z",
+        "value": "1e+01"
+    },
+    {
+        "labels": {
+            "alertname": "KubeHpaMaxedOut",
+            "container": "kube-state-metrics",
+            "endpoint": "http",
+            "horizontalpodautoscaler": "valkey-cart",
+            "instance": "100.96.3.92:8080",
+            "job": "kube-state-metrics",
+            "namespace": "otel-demo",
+            "pod": "prometheus-kube-state-metrics-7c5fb9d798-tfwh8",
+            "service": "prometheus-kube-state-metrics",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "HPA otel-demo/valkey-cart has been running at max replicas for longer than 15 minutes on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubehpamaxedout",
+            "summary": "HPA is running at max replicas"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:34:15.10834109Z",
+        "value": "1e+01"
+    },
+    {
+        "labels": {
+            "alertname": "KubeHpaMaxedOut",
+            "container": "kube-state-metrics",
+            "endpoint": "http",
+            "horizontalpodautoscaler": "quote",
+            "instance": "100.96.3.92:8080",
+            "job": "kube-state-metrics",
+            "namespace": "otel-demo",
+            "pod": "prometheus-kube-state-metrics-7c5fb9d798-tfwh8",
+            "service": "prometheus-kube-state-metrics",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "HPA otel-demo/quote has been running at max replicas for longer than 15 minutes on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubehpamaxedout",
+            "summary": "HPA is running at max replicas"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:34:15.10834109Z",
+        "value": "1e+01"
+    },
+    {
+        "labels": {
+            "alertname": "NoRequestsDetected",
+            "namespace": "otel-demo",
+            "service_name": "fraud-detection",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Service fraud-detection in namespace otel-demo has 0 requests"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:42:36.372723786Z",
+        "value": "0e+00"
+    },
+    {
+        "labels": {
+            "alertname": "KubeControllerManagerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:33:53.758480447Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "Watchdog",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+            "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:33:37.304481894Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "CPUThrottlingHigh",
+            "container": "opentelemetry-collector",
+            "instance": "10.0.109.132:10250",
+            "namespace": "otel-demo",
+            "pod": "otel-collector-564d9c7987-bln8k",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "info"
+        },
+        "annotations": {
+            "description": "35.08% throttling of CPU in namespace otel-demo for container opentelemetry-collector in pod otel-collector-564d9c7987-bln8k on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/cputhrottlinghigh",
+            "summary": "Processes experience elevated CPU throttling."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:34:17.660074968Z",
+        "value": "3.507670850767085e-01"
+    }
+]

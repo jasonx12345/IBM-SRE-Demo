@@ -1,0 +1,65 @@
+[
+    {
+        "labels": {
+            "alertname": "PrometheusNotConnectedToAlertmanagers",
+            "container": "prometheus",
+            "endpoint": "http-web",
+            "instance": "100.96.4.62:9090",
+            "job": "prometheus-kube-prometheus-prometheus",
+            "namespace": "prometheus",
+            "pod": "prometheus-prometheus-kube-prometheus-prometheus-0",
+            "service": "prometheus-kube-prometheus-prometheus",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Prometheus prometheus/prometheus-prometheus-kube-prometheus-prometheus-0 is not connected to any Alertmanagers.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusnotconnectedtoalertmanagers",
+            "summary": "Prometheus is not connected to any Alertmanagers."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:31:23.66401305Z",
+        "value": "0e+00"
+    },
+    {
+        "labels": {
+            "alertname": "KubeSchedulerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:31:01.887365011Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "Watchdog",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+            "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:31:19.46771925Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "KubeControllerManagerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:30:59.048729644Z",
+        "value": "1e+00"
+    }
+]

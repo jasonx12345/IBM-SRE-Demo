@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#101318" />
+  <title>Toil Budget — Alert Retirement Lab</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/static/retirement.css" />
+  <script src="/static/retirement.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to replay</a>
+  <header>
+    <a class="brand" href="/">▥ toil<span>budget</span><b>.</b></a>
+    <nav aria-label="Main navigation">
+      <a class="active" href="/" aria-current="page">Retirement lab</a>
+      <a href="/toil">Toil example</a>
+      <a href="/docs/RESEARCH.md" target="_blank" rel="noopener">Research ↗</a>
+    </nav>
+    <span class="source-badge" id="source-badge">LOADING DATA</span>
+  </header>
+  <main id="main">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">ALERT CHANGES, WITH EVIDENCE</p>
+        <h1>Retire the noise.<br /><span>Keep the warning.</span></h1>
+        <p class="lede">Two alerts can each look redundant. Remove both, and the warning disappears.<br class="desktop" /> Replay a proposed set of removals against recorded evidence before changing your rules.</p>
+      </div>
+      <div class="dataset-panel">
+        <p class="eyebrow">YOUR EVIDENCE WINDOW</p>
+        <strong id="window-label">Loading…</strong>
+        <p id="source-label">Loading event history and incident ledger.</p>
+        <label class="dataset-choice" for="dataset-choice">Evidence source</label>
+        <select id="dataset-choice"><option value="default">IBM recorded experiments</option><option value="synthetic">Synthetic teaching examples</option><option value="imported" hidden>Imported JSON</option></select>
+        <p id="source-description"></p>
+        <div class="button-row">
+          <button id="import" class="quiet">Load JSON</button>
+          <button id="sample" class="quiet">Download dataset ↓</button>
+          <input id="file" type="file" accept=".json,application/json" hidden />
+        </div>
+        <a class="text-link" href="/docs/REPLAY.md" target="_blank" rel="noopener">Data format &amp; replay assumptions ↗</a>
+      </div>
+    </section>
+    <div id="error" class="error" role="alert" hidden></div>
+    <section id="ibm-evidence" class="evidence panel" hidden>
+      <h3>Recorded in IBM Research’s test environments</h3>
+      <p id="import-summary"></p>
+      <p>Faults were deliberately injected. These are measured alerts, not customer production incidents or confirmed pager deliveries. Times show first observed firing; alerts already firing at capture start have an unknown earlier order.</p>
+      <a class="text-link" href="https://huggingface.co/datasets/ibm-research/ITBench-Lite/tree/d0916b08ba421ce5e672e9ad68aa947d938dfef0" target="_blank" rel="noopener">View IBM’s original dataset ↗</a> ·
+      <a class="text-link" href="/docs/IBM_DATA.md" target="_blank" rel="noopener">Source files, matching method &amp; reproducible import ↗</a>
+    </section>
+    <section id="benchmark-actions" class="scenario-bar" aria-label="IBM replay examples" hidden>
+      <span class="eyebrow">EXPLORE THE IBM CAPTURE</span>
+      <button id="ibm-conflict" class="preset">Remove both proxy warnings</button>
+      <button id="ibm-unknown" class="preset">Inspect unlinked certificate alerts</button>
+    </section>
+    <section id="synthetic-actions" class="scenario-bar" aria-label="Synthetic demo scenarios">
+      <span class="eyebrow">TRY A SCENARIO</span>
+      <button data-preset="conflict" class="preset active" aria-pressed="true">01 &nbsp; The hidden conflict</button>
+      <button data-preset="delay" class="preset" aria-pressed="false">02 &nbsp; A delayed warning</button>
+      <button data-preset="clean" class="preset" aria-pressed="false">03 &nbsp; A clean replay</button>
+      <button data-preset="unknown" class="preset" aria-pressed="false">04 &nbsp; Missing evidence</button>
+    </section>
+    <div class="workspace" id="workspace" aria-busy="true">
+      <aside class="policy panel" aria-labelledby="policy-heading">
+        <div class="panel-heading"><div><p class="eyebrow">01 / PROPOSE A CHANGE</p><h2 id="policy-heading">Alerts to retire</h2></div><button id="clear" class="text-button">Clear</button></div>
+        <p class="helper" id="policy-help">Select alert scopes to remove. Each row shows the result of removing it alone.</p>
+        <div class="policy-settings">
+          <label for="delay" id="delay-label">Allowed extra warning delay</label>
+          <div><input id="delay" type="number" value="5" min="0" max="60" step="1" /><span>minutes</span></div>
+        </div>
+        <div id="candidates" class="candidates"><p class="helper">Loading alerts…</p></div>
+        <div class="policy-footer"><span id="selection">0 selected</span><span>Changes are simulated only</span></div>
+      </aside>
+      <section class="results" aria-labelledby="results-heading">
+        <div class="result-heading"><div><p class="eyebrow">02 / REVIEW THE WHOLE CHANGE</p><h2 id="results-heading">What would change?</h2></div><button id="export" class="primary" disabled>Export review ↓</button></div>
+        <div id="verdict" class="verdict" role="status" aria-live="polite"><strong>Replaying history…</strong></div>
+        <div class="stats">
+          <article class="stat"><span id="removed-label">Events removed</span><strong id="removed">—</strong><p id="removed-note">Across the observation window</p></article>
+          <article class="stat"><span id="lost-label">Cases losing all warnings</span><strong id="lost">—</strong><p id="lost-note">Compared with recorded history</p></article>
+          <article class="stat"><span>Warnings beyond delay budget</span><strong id="late">—</strong><p id="late-note">Compared with the original first warning</p></article>
+        </div>
+        <section id="repair" class="repair panel" aria-labelledby="repair-heading" hidden>
+          <div class="panel-heading"><div><p class="eyebrow">A SMALLER CHANGE</p><h3 id="repair-heading">Keep a warning path</h3></div></div>
+          <div id="restorations"></div>
+        </section>
+        <section class="panel incident-panel" aria-labelledby="incidents-heading">
+          <div class="panel-heading"><div><p class="eyebrow">03 / FOLLOW THE EVIDENCE</p><h3 id="incidents-heading">Incident replay</h3></div><span id="coverage" class="coverage"></span></div>
+          <p class="helper inside" id="timeline-help">Expand a case to see its original warning sequence and what remains.</p>
+          <div id="incidents"></div>
+        </section>
+        <section class="evidence panel" aria-labelledby="evidence-heading">
+          <h3 id="evidence-heading">What this replay cannot tell you</h3>
+          <p id="evidence-summary"></p>
+          <p>Remaining events are held fixed. A real change could alter later alerts and engineer actions. Historical coverage is not a guarantee of future detection.</p>
+          <div class="provenance"><span id="fingerprint"></span><a class="text-link" href="/docs/DEMO.md" target="_blank" rel="noopener">Demo walkthrough ↗</a></div>
+        </section>
+      </section>
+    </div>
+    <footer>Built for alert-change reviews. No production rules are modified.<span id="data-note"></span></footer>
+  </main>
+</body>
+</html>

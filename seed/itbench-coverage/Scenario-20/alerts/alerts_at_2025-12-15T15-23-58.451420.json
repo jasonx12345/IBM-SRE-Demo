@@ -1,0 +1,82 @@
+[
+    {
+        "labels": {
+            "alertname": "RequestErrorRate",
+            "namespace": "otel-demo",
+            "service_name": "ad",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Request error rate in service ad in namespace otel-demo is above 0 (current: 0.010533518518518518)"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T15:22:40.075980626Z",
+        "value": "1.0533518518518518e-02"
+    },
+    {
+        "labels": {
+            "alertname": "KubeClientCertificateExpiration",
+            "instance": "10.0.174.127:443",
+            "job": "apiserver",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "A client certificate used to authenticate to kubernetes apiserver is expiring in less than 7.0 days on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeclientcertificateexpiration",
+            "summary": "Client certificate is about to expire."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T15:16:00.712660095Z",
+        "value": "1.844576631259484e+03"
+    },
+    {
+        "labels": {
+            "alertname": "KubeClientCertificateExpiration",
+            "instance": "10.0.174.127:443",
+            "job": "apiserver",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "A client certificate used to authenticate to kubernetes apiserver is expiring in less than 24.0 hours on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeclientcertificateexpiration",
+            "summary": "Client certificate is about to expire."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T15:16:00.712660095Z",
+        "value": "1.844576631259484e+03"
+    },
+    {
+        "labels": {
+            "alertname": "Watchdog",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+            "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T15:14:52.71591701Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "InfoInhibitor",
+            "alertstate": "pending",
+            "container": "neo4j",
+            "instance": "10.0.175.227:10250",
+            "namespace": "kube-system",
+            "pod": "topology-monitor-0",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert that is used to inhibit info alerts.\nBy themselves, the info-level alerts are sometimes very noisy, but they are relevant when combined with\nother alerts.\nThis alert fires whenever there's a severity=\"info\" alert, and stops firing when another alert with a\nseverity of 'warning' or 'critical' starts firing on the same namespace.\nThis alert should be routed to a null receiver and configured to inhibit alerts with severity=\"info\".\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/infoinhibitor",
+            "summary": "Info-level alert inhibition."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T15:18:22.71591701Z",
+        "value": "1e+00"
+    }
+]

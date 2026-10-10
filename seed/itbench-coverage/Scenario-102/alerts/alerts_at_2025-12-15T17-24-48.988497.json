@@ -1,0 +1,165 @@
+[
+    {
+        "labels": {
+            "alertname": "PrometheusNotConnectedToAlertmanagers",
+            "container": "prometheus",
+            "endpoint": "http-web",
+            "instance": "100.96.2.11:9090",
+            "job": "prometheus-kube-prometheus-prometheus",
+            "namespace": "prometheus",
+            "pod": "prometheus-prometheus-kube-prometheus-prometheus-0",
+            "service": "prometheus-kube-prometheus-prometheus",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Prometheus prometheus/prometheus-prometheus-kube-prometheus-prometheus-0 is not connected to any Alertmanagers.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusnotconnectedtoalertmanagers",
+            "summary": "Prometheus is not connected to any Alertmanagers."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T15:24:00.49701454Z",
+        "value": "0e+00"
+    },
+    {
+        "labels": {
+            "alertname": "KubeSchedulerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T15:23:40.364235592Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "KubeControllerManagerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T15:23:44.254584767Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "Watchdog",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+            "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T15:23:45.898953699Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "InfoInhibitor",
+            "alertstate": "pending",
+            "container": "postgresql",
+            "instance": "10.0.120.74:10250",
+            "namespace": "otel-demo",
+            "pod": "postgresql-c7fd45b87-jpzrk",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert that is used to inhibit info alerts.\nBy themselves, the info-level alerts are sometimes very noisy, but they are relevant when combined with\nother alerts.\nThis alert fires whenever there's a severity=\"info\" alert, and stops firing when another alert with a\nseverity of 'warning' or 'critical' starts firing on the same namespace.\nThis alert should be routed to a null receiver and configured to inhibit alerts with severity=\"info\".\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/infoinhibitor",
+            "summary": "Info-level alert inhibition."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:24:45.898953699Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "InfoInhibitor",
+            "alertstate": "pending",
+            "container": "product-catalog",
+            "instance": "10.0.120.74:10250",
+            "namespace": "otel-demo",
+            "pod": "product-catalog-7c7f8b68dc-95n84",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert that is used to inhibit info alerts.\nBy themselves, the info-level alerts are sometimes very noisy, but they are relevant when combined with\nother alerts.\nThis alert fires whenever there's a severity=\"info\" alert, and stops firing when another alert with a\nseverity of 'warning' or 'critical' starts firing on the same namespace.\nThis alert should be routed to a null receiver and configured to inhibit alerts with severity=\"info\".\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/infoinhibitor",
+            "summary": "Info-level alert inhibition."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:24:45.898953699Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "InfoInhibitor",
+            "alertstate": "pending",
+            "container": "recommendation",
+            "instance": "10.0.121.129:10250",
+            "namespace": "otel-demo",
+            "pod": "recommendation-5f45f75855-x4vvb",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert that is used to inhibit info alerts.\nBy themselves, the info-level alerts are sometimes very noisy, but they are relevant when combined with\nother alerts.\nThis alert fires whenever there's a severity=\"info\" alert, and stops firing when another alert with a\nseverity of 'warning' or 'critical' starts firing on the same namespace.\nThis alert should be routed to a null receiver and configured to inhibit alerts with severity=\"info\".\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/infoinhibitor",
+            "summary": "Info-level alert inhibition."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:24:45.898953699Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "InfoInhibitor",
+            "alertstate": "pending",
+            "container": "ad",
+            "instance": "10.0.120.74:10250",
+            "namespace": "otel-demo",
+            "pod": "ad-554b849958-p226w",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert that is used to inhibit info alerts.\nBy themselves, the info-level alerts are sometimes very noisy, but they are relevant when combined with\nother alerts.\nThis alert fires whenever there's a severity=\"info\" alert, and stops firing when another alert with a\nseverity of 'warning' or 'critical' starts firing on the same namespace.\nThis alert should be routed to a null receiver and configured to inhibit alerts with severity=\"info\".\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/infoinhibitor",
+            "summary": "Info-level alert inhibition."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:24:45.898953699Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "InfoInhibitor",
+            "alertstate": "pending",
+            "container": "frontend",
+            "instance": "10.0.120.74:10250",
+            "namespace": "otel-demo",
+            "pod": "frontend-675fd7b5c5-nkn95",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert that is used to inhibit info alerts.\nBy themselves, the info-level alerts are sometimes very noisy, but they are relevant when combined with\nother alerts.\nThis alert fires whenever there's a severity=\"info\" alert, and stops firing when another alert with a\nseverity of 'warning' or 'critical' starts firing on the same namespace.\nThis alert should be routed to a null receiver and configured to inhibit alerts with severity=\"info\".\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/infoinhibitor",
+            "summary": "Info-level alert inhibition."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:24:45.898953699Z",
+        "value": "1e+00"
+    }
+]

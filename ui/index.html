@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#101318" />
+    <title>Toil Budget — Alert intelligence</title>
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to analysis</a>
+    <header class="app-header">
+      <a class="brand" href="/" aria-label="Toil Budget home"
+        ><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span
+        >toil<span class="brand-light">budget</span
+        ><span class="brand-dot">.</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="/">Retirement lab</a><a class="nav-active" href="#main">Toil analysis</a
+        ><a href="/docs/MODEL.md" target="_blank" rel="noopener"
+          >The model <span aria-hidden="true">↗</span></a
+        ><a href="/docs/OPERATIONS.md" target="_blank" rel="noopener"
+          >Operations <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+      <span class="environment"
+        ><span class="status-dot"></span>SYNTHETIC DATA</span
+      >
+    </header>
+    <main id="main">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">LESS REPETITION. MORE ENGINEERING.</p>
+          <h1>Know what to automate next<span>.</span></h1>
+          <p class="intro-copy">
+            Turn alert history into a defensible plan to give your team time
+            back.
+          </p>
+        </div>
+        <div class="window-control">
+          <span class="small-label">OBSERVATION WINDOW</span>
+          <div>
+            <span id="window-label">Loading dataset…</span
+            ><button
+              id="refresh"
+              class="icon-button"
+              aria-label="Refresh analysis"
+              title="Refresh analysis"
+            >
+              ↻
+            </button>
+          </div>
+          <span id="window-meta" class="muted small"
+            >Six complete months · annualized estimates</span
+          >
+        </div>
+      </section>
+      <div id="message" class="message" role="status" hidden></div>
+      <div id="dashboard" aria-busy="true">
+        <section class="stats" aria-label="Analysis summary">
+          <article class="stat">
+            <div class="stat-heading">
+              Estimated annual toil hours <span class="stat-symbol">↗</span>
+            </div>
+            <div class="stat-number">
+              <span id="total-hours">—</span><span class="unit">h / year</span>
+            </div>
+            <p>Modeled manual work across all alert types</p>
+          </article>
+          <article class="stat">
+            <div class="stat-heading">
+              Alerts analysed <span class="stat-symbol">≋</span>
+            </div>
+            <div class="stat-number">
+              <span id="total-alerts">—</span><span class="unit">events</span>
+            </div>
+            <p id="alert-count-note">Across the observation window</p>
+          </article>
+          <article class="stat stat-accent">
+            <div class="stat-heading">
+              Recoverable through automation <span class="stat-symbol">↗</span>
+            </div>
+            <div class="stat-number">
+              <span id="recoverable-hours">—</span
+              ><span class="unit">h / year</span>
+            </div>
+            <p>Estimated gross savings · top 3 candidates</p>
+          </article>
+        </section>
+        <section class="recommendations" aria-labelledby="recommendation-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">01 / WHERE TO START</p>
+              <h2 id="recommendation-title">
+                Small fixes. Compounding returns.
+              </h2>
+            </div>
+            <span class="section-note"
+              >Ranked by estimated annual hours saved</span
+            >
+          </div>
+          <div id="automation-cards" class="card-grid">
+            <div class="placeholder">Analysing manual work…</div>
+          </div>
+          <div class="savings-note">
+            <span aria-hidden="true">ⓘ</span
+            ><span id="savings-note"
+              >Savings assume full removal of modeled manual work. Build and
+              maintenance costs are excluded.</span
+            ><a href="/docs/MODEL.md" target="_blank" rel="noopener"
+              >Read assumptions ↗</a
+            >
+          </div>
+        </section>
+        <section class="noise-section" aria-labelledby="noise-title">
+          <div class="noise-heading">
+            <div>
+              <p class="eyebrow">A QUIETER ON-CALL</p>
+              <h2 id="noise-title">Candidates to retire</h2>
+            </div>
+            <p>
+              Ranked by event volume.<br />Review signal value before removal.
+            </p>
+          </div>
+          <div id="delete-cards" class="delete-grid"></div>
+        </section>
+        <section class="inventory" aria-labelledby="inventory-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">02 / THE FULL PICTURE</p>
+              <h2 id="inventory-title">Every alert, accounted for.</h2>
+            </div>
+            <span class="section-note" id="after-hours-note"></span>
+          </div>
+          <div class="table-toolbar">
+            <div
+              id="filters"
+              class="filters"
+              role="group"
+              aria-label="Filter by classification"
+            ></div>
+            <label class="search"
+              ><span aria-hidden="true">⌕</span
+              ><input
+                id="search"
+                type="search"
+                placeholder="Find an alert or service"
+                aria-label="Find an alert or service"
+            /></label>
+          </div>
+          <div class="table-scroll">
+            <table id="alert-table">
+              <caption class="sr-only">
+                Alert metrics. Select a column heading to sort, or an alert name
+                to view its details.
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col" data-key="alert_name">
+                    <button>Alert / service</button>
+                  </th>
+                  <th scope="col" data-key="occurrences">
+                    <button>Events</button>
+                  </th>
+                  <th scope="col" data-key="manual_rate">
+                    <button>Manual</button>
+                  </th>
+                  <th scope="col" data-key="auto_resolve_rate">
+                    <button>Auto-resolve</button>
+                  </th>
+                  <th scope="col" data-key="median_manual_minutes">
+                    <button>Manual min</button>
+                  </th>
+                  <th scope="col" data-key="runbook_repeat_rate">
+                    <button>Runbook repeat</button>
+                  </th>
+                  <th scope="col" data-key="incident_rate">
+                    <button>Incidents</button>
+                  </th>
+                  <th
+                    scope="col"
+                    data-key="estimated_annual_toil_hours"
+                    aria-sort="descending"
+                  >
+                    <button>Est. toil h/yr ↓</button>
+                  </th>
+                  <th scope="col" data-key="classification">
+                    <button>Recommendation</button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="alert-rows"></tbody>
+            </table>
+          </div>
+          <div class="table-bottom">
+            <span id="table-count">Loading alert types…</span
+            ><span
+              >Click an alert to inspect its evidence
+              <span aria-hidden="true">↗</span></span
+            >
+          </div>
+        </section>
+        <details class="model-details">
+          <summary>
+            How to read these estimates <span>MODEL NOTES</span>
+          </summary>
+          <div>
+            <p>
+              <strong>Alert duration is not engineer time.</strong> We estimate
+              manual work using manual event count × median
+              acknowledge-to-resolve minutes × mean responders (at least one),
+              then annualize by the documented coverage window.
+            </p>
+            <p>
+              Runbook repeat rate is the modal known action divided by all
+              manual resolutions. Missing runbooks stay in the denominator.
+              Classification thresholds are judgement calls, evaluated in this
+              order: delete → tune → automate → keep human.
+            </p>
+            <p id="assumption-detail"></p>
+            <p id="quality-note"></p>
+            <a href="/docs/LIMITATIONS.md" target="_blank" rel="noopener"
+              >Read the limitations ↗</a
+            >
+          </div>
+        </details>
+      </div>
+    </main>
+    <footer>
+      <span
+        ><span class="status-dot"></span>All toil figures are estimates. See
+        <a href="/docs/MODEL.md" target="_blank" rel="noopener">MODEL.md</a> for
+        the model and
+        <a href="/docs/LIMITATIONS.md" target="_blank" rel="noopener"
+          >LIMITATIONS.md</a
+        >
+        for what it cannot see.</span
+      ><span class="footer-mark">TOIL BUDGET / v1.0</span>
+    </footer>
+    <dialog id="detail-dialog" aria-labelledby="detail-title">
+      <div class="dialog-top">
+        <span class="eyebrow">ALERT EVIDENCE</span
+        ><button
+          class="icon-button"
+          id="close-detail"
+          aria-label="Close alert detail"
+        >
+          ×
+        </button>
+      </div>
+      <div id="detail-content"></div>
+    </dialog>
+  </body>
+</html>

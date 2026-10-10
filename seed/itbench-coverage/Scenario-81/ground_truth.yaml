@@ -1,0 +1,103 @@
+---
+metadata:
+  version: "v1"
+fault:
+  - entity:
+      name: otel-demo-shipping-quote-network-partition
+      group_id: otel-demo-shipping-quote-network-partition
+      kind: NetworkChaos
+    condition: Chaos Mesh network partition blocking shipping pods from reaching quote service
+    category: Network
+    fault_mechanism: network_partition
+alerts:
+  - id: RequestErrorRate
+    group_id: shipping-service-1
+    metadata:
+      description: Shipping service cannot reach quote service due to network partition, returning 500 errors
+  - id: RequestLatency
+    group_id: shipping-service-1
+    metadata:
+      description: Shipping service experiencing increased latency due to quote service timeouts
+  - id: RequestErrorRate
+    group_id: checkout-service-1
+    metadata:
+      description: Checkout service receiving errors from shipping service
+  - id: RequestErrorRate
+    group_id: frontend-service-1
+    metadata:
+      description: Frontend service experiencing errors during checkout flow
+  - id: RequestErrorRate
+    group_id: frontend-proxy-service-1
+    metadata:
+      description: Frontend proxy experiencing errors from failed checkout attempts
+groups:
+  - id: otel-demo-shipping-quote-network-partition
+    kind: NetworkChaos
+    filter:
+      - otel-demo-shipping-quote-network-partition
+    namespace: chaos-mesh
+    root_cause: true
+  - id: shipping-pod-1
+    kind: Pod
+    filter:
+      - shipping-.*
+    namespace: otel-demo
+  - id: shipping-service-1
+    kind: Service
+    filter:
+      - shipping\b
+    namespace: otel-demo
+  - id: quote-service-1
+    kind: Service
+    filter:
+      - quote\b
+    namespace: otel-demo
+  - id: checkout-service-1
+    kind: Service
+    filter:
+      - checkout\b
+    namespace: otel-demo
+  - id: frontend-service-1
+    kind: Service
+    filter:
+      - frontend\b
+    namespace: otel-demo
+  - id: frontend-proxy-service-1
+    kind: Service
+    filter:
+      - frontend-proxy\b
+    namespace: otel-demo
+aliases:
+  - - shipping-service-1
+    - shipping-pod-1
+propagations:
+  - source: otel-demo-shipping-quote-network-partition
+    target: shipping-pod-1
+    condition: Chaos Mesh NetworkChaos resource injects network partition affecting shipping pods
+    effect: Shipping pods cannot establish or maintain connections to quote service
+  - source: shipping-pod-1
+    target: shipping-service-1
+    condition: Shipping pods cannot communicate with quote service due to network partition
+    effect: Shipping service cannot retrieve shipping cost quotes and returns 500 errors
+  - source: shipping-service-1
+    target: quote-service-1
+    condition: Network partition prevents shipping service from communicating with quote service
+    effect: Quote service becomes unreachable from shipping, causing shipping requests to fail
+  - source: quote-service-1
+    target: checkout-service-1
+    condition: Checkout service calls shipping service which fails due to quote service unavailability
+    effect: Checkout operations fail when attempting to calculate shipping costs
+  - source: checkout-service-1
+    target: frontend-service-1
+    condition: Frontend receives errors from checkout when shipping calculations fail
+    effect: Users cannot complete checkout due to shipping service failures
+  - source: frontend-service-1
+    target: frontend-proxy-service-1
+    condition: Frontend returns errors to proxy for failed checkout attempts
+    effect: User-facing checkout operations fail through the proxy
+recommended_actions:
+  - solution:
+      id: resolve_network_partition
+      actions:
+        - Identify and resolve network partition between shipping and quote pods
+        - Verify network policies and connectivity between the services

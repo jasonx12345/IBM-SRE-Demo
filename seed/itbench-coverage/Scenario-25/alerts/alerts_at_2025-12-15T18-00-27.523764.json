@@ -1,0 +1,139 @@
+[
+    {
+        "labels": {
+            "alertname": "KubeSchedulerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:31:01.887365011Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "KubeClientCertificateExpiration",
+            "instance": "10.0.126.202:443",
+            "job": "apiserver",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "A client certificate used to authenticate to kubernetes apiserver is expiring in less than 7.0 days on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeclientcertificateexpiration",
+            "summary": "Client certificate is about to expire."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:53:31.940131605Z",
+        "value": "6.8634e+04"
+    },
+    {
+        "labels": {
+            "alertname": "KubeClientCertificateExpiration",
+            "instance": "10.0.126.202:443",
+            "job": "apiserver",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "A client certificate used to authenticate to kubernetes apiserver is expiring in less than 24.0 hours on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeclientcertificateexpiration",
+            "summary": "Client certificate is about to expire."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:53:31.940131605Z",
+        "value": "6.8634e+04"
+    },
+    {
+        "labels": {
+            "alertname": "RequestLatency",
+            "namespace": "otel-demo",
+            "service_name": "frontend-proxy",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Latency in service frontend-proxy in namespace otel-demo is above 1500ms (current: 2691.6666666666756s)"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:58:04.551402655Z",
+        "value": "2.6916666666666756e+03"
+    },
+    {
+        "labels": {
+            "alertname": "RequestLatency",
+            "namespace": "otel-demo",
+            "service_name": "frontend",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Latency in service frontend in namespace otel-demo is above 1500ms (current: 2389.5833333333335s)"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:58:04.551402655Z",
+        "value": "2.3895833333333335e+03"
+    },
+    {
+        "labels": {
+            "alertname": "RequestErrorRate",
+            "namespace": "otel-demo",
+            "service_name": "frontend-proxy",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Request error rate in service frontend-proxy in namespace otel-demo is above 0 (current: 0.06666666666666667)"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:58:04.551402655Z",
+        "value": "6.666666666666667e-02"
+    },
+    {
+        "labels": {
+            "alertname": "Watchdog",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+            "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:31:19.46771925Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "KubeControllerManagerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:30:59.048729644Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "PrometheusNotConnectedToAlertmanagers",
+            "container": "prometheus",
+            "endpoint": "http-web",
+            "instance": "100.96.4.62:9090",
+            "job": "prometheus-kube-prometheus-prometheus",
+            "namespace": "prometheus",
+            "pod": "prometheus-prometheus-kube-prometheus-prometheus-0",
+            "service": "prometheus-kube-prometheus-prometheus",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Prometheus prometheus/prometheus-prometheus-kube-prometheus-prometheus-0 is not connected to any Alertmanagers.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusnotconnectedtoalertmanagers",
+            "summary": "Prometheus is not connected to any Alertmanagers."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:31:23.66401305Z",
+        "value": "0e+00"
+    }
+]

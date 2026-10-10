@@ -1,0 +1,81 @@
+# Local kind/minikube credentials only. Substitute a managed secret for deployment.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: toil-budget-db
+type: Opaque
+stringData:
+  password: toil_local_demo
+  url: postgresql://toil:toil_local_demo@postgres:5432/toil_budget
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+spec:
+  clusterIP: None
+  selector:
+    app: toil-postgres
+  ports:
+    - port: 5432
+      targetPort: 5432
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+spec:
+  serviceName: postgres
+  replicas: 1
+  selector:
+    matchLabels:
+      app: toil-postgres
+  template:
+    metadata:
+      labels:
+        app: toil-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          env:
+            - name: POSTGRES_DB
+              value: toil_budget
+            - name: POSTGRES_USER
+              value: toil
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: toil-budget-db
+                  key: password
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          ports:
+            - containerPort: 5432
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: "1"
+              memory: 512Mi
+          readinessProbe:
+            exec:
+              command: [pg_isready, -U, toil, -d, toil_budget]
+            periodSeconds: 5
+          livenessProbe:
+            exec:
+              command: [pg_isready, -U, toil, -d, toil_budget]
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: [ReadWriteOnce]
+        resources:
+          requests:
+            storage: 1Gi

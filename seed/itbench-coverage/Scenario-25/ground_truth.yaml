@@ -1,0 +1,70 @@
+---
+metadata:
+  version: "v1"
+alerts:
+  - group_id: frontend-service-1
+    id: RequestErrorRate
+    metadata:
+      description: Error Rate is Above Threshold
+  - group_id: recommendation-service-1
+    id: RequestErrorRate
+    metadata:
+      description: Error Rate is Above Threshold
+aliases:
+  - - frontend-service-1
+    - frontend-pod-1
+  - - recommendation-pod-1
+    - recommendation-service-1
+fault:
+  - category: Other
+    condition: Resource Saturation
+    entity:
+      group_id: cpustress-recommendation-1
+      kind: Service
+      name: cpustress-recommendation-1
+    fault_mechanism: chaos
+groups:
+  - filter:
+      - .*recommendation
+    id: otel-demo-recommendation-cpu-stress
+    kind: Schedule
+    namespace: chaos-mesh
+    root_cause: true
+  - filter:
+      - recommendation-.*
+    id: recommendation-pod-1
+    kind: Pod
+    namespace: otel-demo
+  - filter:
+      - recommendation\b
+    id: recommendation-service-1
+    kind: Service
+    namespace: otel-demo
+  - filter:
+      - frontend\b
+    id: frontend-service-1
+    kind: Service
+    namespace: otel-demo
+  - filter:
+      - frontend-.*
+    id: frontend-pod-1
+    kind: Pod
+    namespace: otel-demo
+propagations:
+  - condition: chaosmesh cpustresser hogs cpu
+    effect: recommendationservice pod cpu saturation
+    source: otel-demo-recommendation-cpu-stress
+    target: recommendation-pod-1
+  - condition: recommendationservice cpu saturation
+    effect: recommendationservice Error Rate is Above Threshold. frontend service Error Rate is Above Threshold
+    source: recommendation-pod-1
+    target: frontend-service-1
+recommended_actions:
+  - solution:
+      actions:
+        - Delete the resource stresschaos recommendationservice
+      id: Delete_the_resource_stresschaos_recommendationservice
+  - solution:
+      actions:
+        - Increase CPU Allocation
+      id: Increase_CPU_Allocation

@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Method &amp; source · Alert Coverage</title><link rel="stylesheet" href="./assets/coverage.css"></head>
+<body><header class="topbar"><a class="brand" href="./">← Alert Coverage</a></header><main>
+<p class="eyebrow">METHOD &amp; SOURCE</p><h1>How this report works</h1>
+<p>The source is <a href="https://huggingface.co/datasets/ibm-research/ITBench-Lite">IBM Research ITBench-Lite</a>, a public fault-injection benchmark. This report uses 35 SRE experiments, their ground-truth YAML files, and 1,839 timestamped alert snapshots. It uses pinned revision <code>d0916b08ba421ce5e672e9ad68aa947d938dfef0</code>.</p>
+<p>For each declared expected alert, the importer looks for a firing alert with the same name and namespace and a service or pod label matching the declared resource. An observed result links to the first matching original snapshot. Repeated snapshots do not count as additional expected alerts.</p>
+<p><strong>Observed</strong> means a matching row appeared. <strong>Not observed</strong> means none appeared in the published snapshots; it is a reason to investigate, not proof of monitor failure. <strong>Unknown</strong> means snapshots or resource labels were insufficient for a confident comparison.</p>
+<p>This is recorded data from IBM Research test systems, not IBM customer production telemetry. It does not establish whether a page was delivered, whether an engineer noticed it, or the exact time from fault injection to detection.</p>
+<p>Source and importer code are in the <a href="https://github.com/jasonx12345/IBM-SRE-Demo">project repository</a>. The public dataset is licensed Apache-2.0 according to its dataset card.</p>
+</main></body></html>

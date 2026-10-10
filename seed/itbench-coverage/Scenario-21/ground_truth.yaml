@@ -1,0 +1,111 @@
+---
+metadata:
+  version: "v1"
+fault:
+  - entity:
+      name: otel-demo-valkey-memory-stress
+      group_id: otel-demo-valkey-memory-stress
+      kind: StressChaos
+    condition: Chaos Mesh stress injecting memory pressure on valkey-cart pods
+    category: Resource
+    fault_mechanism: memory_stress
+alerts:
+  - id: FailedPodsDetected
+    group_id: valkey-cart-pod-1
+    metadata:
+      description: Valkey cart pods being terminated or restarted due to OOM conditions
+  - id: RequestErrorRate
+    group_id: cart-service-1
+    metadata:
+      description: Cart service experiencing errors when accessing valkey cache
+  - id: RequestLatency
+    group_id: cart-service-1
+    metadata:
+      description: Cart service experiencing increased latency due to cache unavailability
+  - id: RequestErrorRate
+    group_id: frontend-service-1
+    metadata:
+      description: Frontend service experiencing errors when accessing cart functionality
+  - id: RequestLatency
+    group_id: frontend-service-1
+    metadata:
+      description: Frontend service experiencing increased latency for cart operations
+  - id: RequestErrorRate
+    group_id: checkout-service-1
+    metadata:
+      description: Checkout service experiencing errors when retrieving cart data
+  - id: RequestLatency
+    group_id: frontend-proxy-service-1
+    metadata:
+      description: Frontend proxy experiencing increased latency serving pages with cart operations
+groups:
+  - id: otel-demo-valkey-memory-stress
+    kind: StressChaos
+    filter:
+      - otel-demo-valkey-memory-stress
+    namespace: chaos-mesh
+    root_cause: true
+  - id: valkey-cart-pod-1
+    kind: Pod
+    filter:
+      - valkey-cart-.*
+    namespace: otel-demo
+  - id: valkey-cart-service-1
+    kind: Service
+    filter:
+      - valkey-cart\b
+    namespace: otel-demo
+  - id: cart-service-1
+    kind: Service
+    filter:
+      - cart\b
+    namespace: otel-demo
+  - id: frontend-service-1
+    kind: Service
+    filter:
+      - frontend\b
+    namespace: otel-demo
+  - id: checkout-service-1
+    kind: Service
+    filter:
+      - checkout\b
+    namespace: otel-demo
+  - id: frontend-proxy-service-1
+    kind: Service
+    filter:
+      - frontend-proxy\b
+    namespace: otel-demo
+aliases:
+  - - valkey-cart-service-1
+    - valkey-cart-pod-1
+propagations:
+  - source: otel-demo-valkey-memory-stress
+    target: valkey-cart-pod-1
+    condition: Chaos Mesh StressChaos resource injects memory stress on valkey-cart pods
+    effect: Valkey cart pods experience high memory usage and potential OOM kills
+  - source: valkey-cart-pod-1
+    target: valkey-cart-service-1
+    condition: Valkey pods under memory pressure respond slowly, fail requests, or get terminated
+    effect: Valkey cart cache becomes unavailable or severely degraded
+  - source: valkey-cart-service-1
+    target: cart-service-1
+    condition: Cart service cannot access valkey cache for storing and retrieving cart data
+    effect: Cart operations fail, users cannot add items to cart or view cart contents
+  - source: cart-service-1
+    target: frontend-service-1
+    condition: Frontend receives errors from cart service when users interact with cart
+    effect: Cart functionality fails for users browsing and shopping
+  - source: cart-service-1
+    target: checkout-service-1
+    condition: Checkout service cannot retrieve cart data from cart service
+    effect: Checkout operations fail as cart contents are unavailable
+  - source: frontend-service-1
+    target: frontend-proxy-service-1
+    condition: Frontend returns error responses to proxy for failed cart and checkout operations
+    effect: Users cannot use cart functionality or complete purchases through the proxy
+recommended_actions:
+  - solution:
+      id: resolve_memory_stress
+      actions:
+        - Identify and stop the stress chaos experiment affecting valkey-cart service
+        - Monitor valkey memory usage and pod health

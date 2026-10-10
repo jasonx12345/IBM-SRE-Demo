@@ -1,0 +1,21 @@
+# API requests only, including unknown /api/* routes. Errors = HTTP 5xx.
+latency:
+  objective: 0.99
+  threshold_seconds: 0.3
+availability:
+  objective: 0.99
+window_days: 30
+# TUNABLE multi-window burn rates; both windows must exceed the multiplier.
+burn_alerts:
+  fast:
+    long_window: 1h
+    short_window: 5m
+    burn_rate: 14.4
+    for: 2m
+    severity: critical
+  slow:
+    long_window: 6h
+    short_window: 30m
+    burn_rate: 6
+    for: 15m
+    severity: warning

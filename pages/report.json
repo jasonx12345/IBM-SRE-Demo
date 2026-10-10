@@ -1,0 +1,1458 @@
+{
+  "source": {
+    "name": "IBM Research ITBench-Lite",
+    "repository": "ibm-research/ITBench-Lite",
+    "revision": "d0916b08ba421ce5e672e9ad68aa947d938dfef0",
+    "url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite",
+    "license": "Apache-2.0",
+    "kind": "Public fault-injection benchmark, not IBM customer production data"
+  },
+  "totals": {
+    "scenarios": 35,
+    "snapshots": 1839,
+    "expected": 96,
+    "observed": 61,
+    "not_observed": 30,
+    "unknown": 5
+  },
+  "scenarios": [
+    {
+      "id": "Scenario-1",
+      "fault": "load-generator-pod-1",
+      "snapshot_count": 48,
+      "alert_rows": 535,
+      "capture_start": "2025-12-15T17:30:09.384366+00:00",
+      "capture_end": "2025-12-15T18:17:09.387695+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:30:09.384366+00:00",
+          "evidence_file": "Scenario-1/alerts/alerts_at_2025-12-15T17-30-09.384366.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-1/alerts/alerts_at_2025-12-15T17-30-09.384366.json"
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:30:09.384366+00:00",
+          "evidence_file": "Scenario-1/alerts/alerts_at_2025-12-15T17-30-09.384366.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-1/alerts/alerts_at_2025-12-15T17-30-09.384366.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-1/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-2",
+      "fault": "frontend, cart, flagd-config",
+      "snapshot_count": 34,
+      "alert_rows": 237,
+      "capture_start": "2025-12-15T17:30:49.329092+00:00",
+      "capture_end": "2025-12-15T18:03:49.327712+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "cart-service-1",
+          "service": "cart-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:50:49.325943+00:00",
+          "evidence_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-50-49.325943.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-2/alerts/alerts_at_2025-12-15T17-50-49.325943.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:49:49.325932+00:00",
+          "evidence_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-49-49.325932.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-2/alerts/alerts_at_2025-12-15T17-49-49.325932.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:30:49.329092+00:00",
+          "evidence_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-30-49.329092.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-2/alerts/alerts_at_2025-12-15T17-30-49.329092.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-2/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-4",
+      "fault": "flagd-config",
+      "snapshot_count": 48,
+      "alert_rows": 310,
+      "capture_start": "2025-12-15T17:30:35.389297+00:00",
+      "capture_end": "2025-12-15T18:17:35.390693+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "product-catalog-service-1",
+          "service": "product-catalog-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:52:35.387350+00:00",
+          "evidence_file": "Scenario-4/alerts/alerts_at_2025-12-15T17-52-35.387350.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-4/alerts/alerts_at_2025-12-15T17-52-35.387350.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:39:35.385790+00:00",
+          "evidence_file": "Scenario-4/alerts/alerts_at_2025-12-15T17-39-35.385790.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-4/alerts/alerts_at_2025-12-15T17-39-35.385790.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-4/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-5",
+      "fault": "frontend, adservice, flagd-config",
+      "snapshot_count": 40,
+      "alert_rows": 284,
+      "capture_start": "2025-12-15T17:30:58.851638+00:00",
+      "capture_end": "2025-12-15T18:09:58.852950+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:50:58.850172+00:00",
+          "evidence_file": "Scenario-5/alerts/alerts_at_2025-12-15T17-50-58.850172.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-5/alerts/alerts_at_2025-12-15T17-50-58.850172.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-5/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-6",
+      "fault": "ad, frontend, flagd-config",
+      "snapshot_count": 41,
+      "alert_rows": 262,
+      "capture_start": "2025-12-15T17:29:47.176850+00:00",
+      "capture_end": "2025-12-15T18:09:47.178227+00:00",
+      "expected": [
+        {
+          "name": "RequestLatency",
+          "group_id": "ad-service-1",
+          "service": "ad-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:50:47.175836+00:00",
+          "evidence_file": "Scenario-6/alerts/alerts_at_2025-12-15T17-50-47.175836.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-6/alerts/alerts_at_2025-12-15T17-50-47.175836.json"
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-6/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-7",
+      "fault": "frontend, checkout, payment",
+      "snapshot_count": 40,
+      "alert_rows": 270,
+      "capture_start": "2025-12-15T17:30:01.296571+00:00",
+      "capture_end": "2025-12-15T18:09:01.297691+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "payment-service-1",
+          "service": "payment-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:54:01.295442+00:00",
+          "evidence_file": "Scenario-7/alerts/alerts_at_2025-12-15T17-54-01.295442.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-7/alerts/alerts_at_2025-12-15T17-54-01.295442.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:53:01.295377+00:00",
+          "evidence_file": "Scenario-7/alerts/alerts_at_2025-12-15T17-53-01.295377.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-7/alerts/alerts_at_2025-12-15T17-53-01.295377.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:52:01.295647+00:00",
+          "evidence_file": "Scenario-7/alerts/alerts_at_2025-12-15T17-52-01.295647.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-7/alerts/alerts_at_2025-12-15T17-52-01.295647.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:32:01.292362+00:00",
+          "evidence_file": "Scenario-7/alerts/alerts_at_2025-12-15T17-32-01.292362.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-7/alerts/alerts_at_2025-12-15T17-32-01.292362.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-7/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-8",
+      "fault": "otel-demo-emailservice, checkout, flagd-config",
+      "snapshot_count": 41,
+      "alert_rows": 289,
+      "capture_start": "2025-12-15T17:31:53.365505+00:00",
+      "capture_end": "2025-12-15T18:11:53.364728+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "payment-service-1",
+          "service": "payment-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:50:53.362111+00:00",
+          "evidence_file": "Scenario-8/alerts/alerts_at_2025-12-15T17-50-53.362111.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-8/alerts/alerts_at_2025-12-15T17-50-53.362111.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:40:53.360631+00:00",
+          "evidence_file": "Scenario-8/alerts/alerts_at_2025-12-15T17-40-53.360631.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-8/alerts/alerts_at_2025-12-15T17-40-53.360631.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-8/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-9",
+      "fault": "frontend-proxy, flagd-config",
+      "snapshot_count": 40,
+      "alert_rows": 247,
+      "capture_start": "2025-12-15T17:30:49.086586+00:00",
+      "capture_end": "2025-12-15T18:09:49.086794+00:00",
+      "expected": [
+        {
+          "name": "RequestLatency",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-9/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-11",
+      "fault": "fraud-detection, flagd-config",
+      "snapshot_count": 0,
+      "alert_rows": 0,
+      "capture_start": null,
+      "capture_end": null,
+      "expected": [
+        {
+          "name": "RequestLatency",
+          "group_id": "fraud-detection-service-1",
+          "service": "fraud-detection-service-1",
+          "namespace": "otel-demo",
+          "status": "unknown",
+          "reason": "No alert snapshots were published for this experiment.",
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "KafkaConnectionClosureRate",
+          "group_id": "fraud-detection-service-1",
+          "service": "fraud-detection-service-1",
+          "namespace": "otel-demo",
+          "status": "unknown",
+          "reason": "No alert snapshots were published for this experiment.",
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-11/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-12",
+      "fault": "frontend, product-catalog, flagd-config",
+      "snapshot_count": 47,
+      "alert_rows": 243,
+      "capture_start": "2025-12-15T17:32:01.892077+00:00",
+      "capture_end": "2025-12-15T18:18:01.893997+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-12/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-13",
+      "fault": "frontend, checkout, flagd-config",
+      "snapshot_count": 39,
+      "alert_rows": 259,
+      "capture_start": "2025-12-15T17:32:05.922716+00:00",
+      "capture_end": "2025-12-15T18:10:05.923171+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "payment-service-1",
+          "service": "payment-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:53:05.921148+00:00",
+          "evidence_file": "Scenario-13/alerts/alerts_at_2025-12-15T17-53-05.921148.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-13/alerts/alerts_at_2025-12-15T17-53-05.921148.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:52:05.920841+00:00",
+          "evidence_file": "Scenario-13/alerts/alerts_at_2025-12-15T17-52-05.920841.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-13/alerts/alerts_at_2025-12-15T17-52-05.920841.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:50:05.920480+00:00",
+          "evidence_file": "Scenario-13/alerts/alerts_at_2025-12-15T17-50-05.920480.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-13/alerts/alerts_at_2025-12-15T17-50-05.920480.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:33:05.918893+00:00",
+          "evidence_file": "Scenario-13/alerts/alerts_at_2025-12-15T17-33-05.918893.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-13/alerts/alerts_at_2025-12-15T17-33-05.918893.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-13/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-14",
+      "fault": "frontend, checkout, payment",
+      "snapshot_count": 37,
+      "alert_rows": 248,
+      "capture_start": "2025-12-15T17:33:37.390583+00:00",
+      "capture_end": "2025-12-15T18:09:37.389996+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:52:37.387802+00:00",
+          "evidence_file": "Scenario-14/alerts/alerts_at_2025-12-15T17-52-37.387802.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-14/alerts/alerts_at_2025-12-15T17-52-37.387802.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "payment-service-2",
+          "service": "payment-service-2",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "checkout-service-2",
+          "service": "checkout-service-2",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-14/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-15",
+      "fault": "frontend, ad, flagd-config",
+      "snapshot_count": 37,
+      "alert_rows": 236,
+      "capture_start": "2025-12-15T17:33:42.077068+00:00",
+      "capture_end": "2025-12-15T18:09:42.077695+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:51:42.075720+00:00",
+          "evidence_file": "Scenario-15/alerts/alerts_at_2025-12-15T17-51-42.075720.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-15/alerts/alerts_at_2025-12-15T17-51-42.075720.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-15/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-16",
+      "fault": "shipping-deployment-1",
+      "snapshot_count": 44,
+      "alert_rows": 441,
+      "capture_start": "2025-12-15T17:33:43.157665+00:00",
+      "capture_end": "2025-12-15T18:16:43.160272+00:00",
+      "expected": [
+        {
+          "name": "RequestLatency",
+          "group_id": "shipping-service-1",
+          "service": "shipping-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-16/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-17",
+      "fault": "delay-otel-demo-product-catalog-1",
+      "snapshot_count": 38,
+      "alert_rows": 298,
+      "capture_start": "2025-12-15T17:35:08.215274+00:00",
+      "capture_end": "2025-12-15T18:12:08.214886+00:00",
+      "expected": [
+        {
+          "name": "RequestLatency",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:55:08.212864+00:00",
+          "evidence_file": "Scenario-17/alerts/alerts_at_2025-12-15T17-55-08.212864.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-17/alerts/alerts_at_2025-12-15T17-55-08.212864.json"
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "recommendation-service-1",
+          "service": "recommendation-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:55:08.212864+00:00",
+          "evidence_file": "Scenario-17/alerts/alerts_at_2025-12-15T17-55-08.212864.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-17/alerts/alerts_at_2025-12-15T17-55-08.212864.json"
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "productcatalog-service-1",
+          "service": "productcatalog-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "frontendproxy-service-1",
+          "service": "frontendproxy-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:55:08.212864+00:00",
+          "evidence_file": "Scenario-17/alerts/alerts_at_2025-12-15T17-55-08.212864.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-17/alerts/alerts_at_2025-12-15T17-55-08.212864.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:59:08.212730+00:00",
+          "evidence_file": "Scenario-17/alerts/alerts_at_2025-12-15T17-59-08.212730.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-17/alerts/alerts_at_2025-12-15T17-59-08.212730.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T18:07:08.214575+00:00",
+          "evidence_file": "Scenario-17/alerts/alerts_at_2025-12-15T18-07-08.214575.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-17/alerts/alerts_at_2025-12-15T18-07-08.214575.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "recommendation-service-1",
+          "service": "recommendation-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-17/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-18",
+      "fault": "pod-otel-demo-checkout-1",
+      "snapshot_count": 36,
+      "alert_rows": 320,
+      "capture_start": "2025-12-15T17:36:30.428201+00:00",
+      "capture_end": "2025-12-15T18:11:30.431295+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:55:30.425802+00:00",
+          "evidence_file": "Scenario-18/alerts/alerts_at_2025-12-15T17-55-30.425802.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-18/alerts/alerts_at_2025-12-15T17-55-30.425802.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-18/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-19",
+      "fault": "partition-otel-demo-shippingservice-1",
+      "snapshot_count": 41,
+      "alert_rows": 375,
+      "capture_start": "2025-12-15T17:36:18.952136+00:00",
+      "capture_end": "2025-12-15T18:16:18.953380+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:55:18.950348+00:00",
+          "evidence_file": "Scenario-19/alerts/alerts_at_2025-12-15T17-55-18.950348.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-19/alerts/alerts_at_2025-12-15T17-55-18.950348.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "shipping-service-1",
+          "service": "shipping-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:56:18.950507+00:00",
+          "evidence_file": "Scenario-19/alerts/alerts_at_2025-12-15T17-56-18.950507.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-19/alerts/alerts_at_2025-12-15T17-56-18.950507.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:56:18.950507+00:00",
+          "evidence_file": "Scenario-19/alerts/alerts_at_2025-12-15T17-56-18.950507.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-19/alerts/alerts_at_2025-12-15T17-56-18.950507.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:55:18.950348+00:00",
+          "evidence_file": "Scenario-19/alerts/alerts_at_2025-12-15T17-55-18.950348.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-19/alerts/alerts_at_2025-12-15T17-55-18.950348.json"
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:56:18.950507+00:00",
+          "evidence_file": "Scenario-19/alerts/alerts_at_2025-12-15T17-56-18.950507.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-19/alerts/alerts_at_2025-12-15T17-56-18.950507.json"
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "shipping-service-1",
+          "service": "shipping-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:56:18.950507+00:00",
+          "evidence_file": "Scenario-19/alerts/alerts_at_2025-12-15T17-56-18.950507.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-19/alerts/alerts_at_2025-12-15T17-56-18.950507.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-19/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-20",
+      "fault": "Fault injection",
+      "snapshot_count": 171,
+      "alert_rows": 2025,
+      "capture_start": "2025-12-15T15:21:58.454980+00:00",
+      "capture_end": "2025-12-15T18:11:58.475085+00:00",
+      "expected": [],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-20/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-21",
+      "fault": "otel-demo-valkey-memory-stress",
+      "snapshot_count": 37,
+      "alert_rows": 323,
+      "capture_start": "2025-12-15T17:36:14.891201+00:00",
+      "capture_end": "2025-12-15T18:12:14.891067+00:00",
+      "expected": [
+        {
+          "name": "FailedPodsDetected",
+          "group_id": "valkey-cart-pod-1",
+          "service": "valkey-cart-pod-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "cart-service-1",
+          "service": "cart-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:56:14.888551+00:00",
+          "evidence_file": "Scenario-21/alerts/alerts_at_2025-12-15T17-56-14.888551.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-21/alerts/alerts_at_2025-12-15T17-56-14.888551.json"
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "cart-service-1",
+          "service": "cart-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:58:14.888994+00:00",
+          "evidence_file": "Scenario-21/alerts/alerts_at_2025-12-15T17-58-14.888994.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-21/alerts/alerts_at_2025-12-15T17-58-14.888994.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:55:14.888548+00:00",
+          "evidence_file": "Scenario-21/alerts/alerts_at_2025-12-15T17-55-14.888548.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-21/alerts/alerts_at_2025-12-15T17-55-14.888548.json"
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:58:14.888994+00:00",
+          "evidence_file": "Scenario-21/alerts/alerts_at_2025-12-15T17-58-14.888994.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-21/alerts/alerts_at_2025-12-15T17-58-14.888994.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:59:14.888990+00:00",
+          "evidence_file": "Scenario-21/alerts/alerts_at_2025-12-15T17-59-14.888990.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-21/alerts/alerts_at_2025-12-15T17-59-14.888990.json"
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:58:14.888994+00:00",
+          "evidence_file": "Scenario-21/alerts/alerts_at_2025-12-15T17-58-14.888994.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-21/alerts/alerts_at_2025-12-15T17-58-14.888994.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-21/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-22",
+      "fault": "otel-demo-ad-memory-stress",
+      "snapshot_count": 38,
+      "alert_rows": 286,
+      "capture_start": "2025-12-15T17:35:03.205045+00:00",
+      "capture_end": "2025-12-15T18:12:03.206090+00:00",
+      "expected": [
+        {
+          "name": "RequestLatency",
+          "group_id": "ad-service-1",
+          "service": "ad-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "FailedPodsDetected",
+          "group_id": "ad-pod-1",
+          "service": "ad-pod-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:56:03.205419+00:00",
+          "evidence_file": "Scenario-22/alerts/alerts_at_2025-12-15T17-56-03.205419.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-22/alerts/alerts_at_2025-12-15T17-56-03.205419.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:41:03.201246+00:00",
+          "evidence_file": "Scenario-22/alerts/alerts_at_2025-12-15T17-41-03.201246.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-22/alerts/alerts_at_2025-12-15T17-41-03.201246.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-22/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-23",
+      "fault": "Fault injection",
+      "snapshot_count": 37,
+      "alert_rows": 417,
+      "capture_start": "2025-12-15T17:40:55.834161+00:00",
+      "capture_end": "2025-12-15T18:16:55.833998+00:00",
+      "expected": [],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-23/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-24",
+      "fault": "checkout-deployment",
+      "snapshot_count": 164,
+      "alert_rows": 1357,
+      "capture_start": "2025-12-15T15:23:59.456735+00:00",
+      "capture_end": "2025-12-15T18:06:59.474867+00:00",
+      "expected": [
+        {
+          "name": "KafkaConnectionClosureRate",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-24/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-25",
+      "fault": "cpustress-recommendation-1",
+      "snapshot_count": 38,
+      "alert_rows": 275,
+      "capture_start": "2025-12-15T17:39:27.525510+00:00",
+      "capture_end": "2025-12-15T18:16:27.526953+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "recommendation-service-1",
+          "service": "recommendation-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-25/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-29",
+      "fault": "jvm-return-otel-demo-ad-1",
+      "snapshot_count": 36,
+      "alert_rows": 301,
+      "capture_start": "2025-12-15T17:36:38.997458+00:00",
+      "capture_end": "2025-12-15T18:11:38.997373+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:55:38.996818+00:00",
+          "evidence_file": "Scenario-29/alerts/alerts_at_2025-12-15T17-55-38.996818.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-29/alerts/alerts_at_2025-12-15T17-55-38.996818.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "ad-service-1",
+          "service": "ad-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:36:38.997458+00:00",
+          "evidence_file": "Scenario-29/alerts/alerts_at_2025-12-15T17-36-38.997458.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-29/alerts/alerts_at_2025-12-15T17-36-38.997458.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-29/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-31",
+      "fault": "Fault injection",
+      "snapshot_count": 38,
+      "alert_rows": 266,
+      "capture_start": "2025-12-15T17:34:49.528434+00:00",
+      "capture_end": "2025-12-15T18:11:49.528774+00:00",
+      "expected": [],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-31/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-33",
+      "fault": "ad-pod-1",
+      "snapshot_count": 38,
+      "alert_rows": 256,
+      "capture_start": "2025-12-15T17:39:29.916323+00:00",
+      "capture_end": "2025-12-15T18:16:29.916998+00:00",
+      "expected": [
+        {
+          "name": "PendingPodsDetected",
+          "group_id": "ad-pod-1",
+          "service": "ad-pod-1",
+          "namespace": "otel-demo",
+          "status": "unknown",
+          "reason": "A same-name alert exists, but its resource label is missing.",
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:49:29.913285+00:00",
+          "evidence_file": "Scenario-33/alerts/alerts_at_2025-12-15T17-49-29.913285.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-33/alerts/alerts_at_2025-12-15T17-49-29.913285.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-33/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-34",
+      "fault": "valkey-pod-1",
+      "snapshot_count": 34,
+      "alert_rows": 362,
+      "capture_start": "2025-12-15T17:33:32.775823+00:00",
+      "capture_end": "2025-12-15T18:06:32.775069+00:00",
+      "expected": [
+        {
+          "name": "RequestLatency",
+          "group_id": "cart-service-1",
+          "service": "cart-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:55:32.773417+00:00",
+          "evidence_file": "Scenario-34/alerts/alerts_at_2025-12-15T17-55-32.773417.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-34/alerts/alerts_at_2025-12-15T17-55-32.773417.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "cart-service-1",
+          "service": "cart-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:55:32.773417+00:00",
+          "evidence_file": "Scenario-34/alerts/alerts_at_2025-12-15T17-55-32.773417.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-34/alerts/alerts_at_2025-12-15T17-55-32.773417.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T18:02:32.774272+00:00",
+          "evidence_file": "Scenario-34/alerts/alerts_at_2025-12-15T18-02-32.774272.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-34/alerts/alerts_at_2025-12-15T18-02-32.774272.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:54:32.773535+00:00",
+          "evidence_file": "Scenario-34/alerts/alerts_at_2025-12-15T17-54-32.773535.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-34/alerts/alerts_at_2025-12-15T17-54-32.773535.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:45:32.771965+00:00",
+          "evidence_file": "Scenario-34/alerts/alerts_at_2025-12-15T17-45-32.771965.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-34/alerts/alerts_at_2025-12-15T17-45-32.771965.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-34/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-35",
+      "fault": "otel-demo-ad-jvm-chaos",
+      "snapshot_count": 34,
+      "alert_rows": 264,
+      "capture_start": "2025-12-15T17:38:36.406134+00:00",
+      "capture_end": "2025-12-15T18:11:36.407601+00:00",
+      "expected": [
+        {
+          "name": "RequestLatency",
+          "group_id": "ad-service-1",
+          "service": "ad-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:58:36.404910+00:00",
+          "evidence_file": "Scenario-35/alerts/alerts_at_2025-12-15T17-58-36.404910.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-35/alerts/alerts_at_2025-12-15T17-58-36.404910.json"
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-35/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-38",
+      "fault": "otel-demo-*",
+      "snapshot_count": 52,
+      "alert_rows": 814,
+      "capture_start": "2025-12-15T17:40:50.533726+00:00",
+      "capture_end": "2025-12-15T18:31:50.536605+00:00",
+      "expected": [
+        {
+          "name": "high_cost_variation",
+          "group_id": "otel-demo-namespace-1",
+          "service": "otel-demo-namespace-1",
+          "namespace": null,
+          "status": "unknown",
+          "reason": "The declared group cannot be matched to an available resource label conservatively.",
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-38/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-80",
+      "fault": "otel-demo-checkout-kafka-network-partition",
+      "snapshot_count": 38,
+      "alert_rows": 393,
+      "capture_start": "2025-12-15T17:39:40.049310+00:00",
+      "capture_end": "2025-12-15T18:16:40.049343+00:00",
+      "expected": [
+        {
+          "name": "KafkaConnectionClosureRate",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "not_observed",
+          "reason": null,
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:39:40.049310+00:00",
+          "evidence_file": "Scenario-80/alerts/alerts_at_2025-12-15T17-39-40.049310.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-80/alerts/alerts_at_2025-12-15T17-39-40.049310.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-80/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-81",
+      "fault": "otel-demo-shipping-quote-network-partition",
+      "snapshot_count": 35,
+      "alert_rows": 291,
+      "capture_start": "2025-12-15T17:42:19.761441+00:00",
+      "capture_end": "2025-12-15T18:16:19.762372+00:00",
+      "expected": [
+        {
+          "name": "RequestErrorRate",
+          "group_id": "shipping-service-1",
+          "service": "shipping-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T18:02:19.760257+00:00",
+          "evidence_file": "Scenario-81/alerts/alerts_at_2025-12-15T18-02-19.760257.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-81/alerts/alerts_at_2025-12-15T18-02-19.760257.json"
+        },
+        {
+          "name": "RequestLatency",
+          "group_id": "shipping-service-1",
+          "service": "shipping-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T18:02:19.760257+00:00",
+          "evidence_file": "Scenario-81/alerts/alerts_at_2025-12-15T18-02-19.760257.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-81/alerts/alerts_at_2025-12-15T18-02-19.760257.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T18:02:19.760257+00:00",
+          "evidence_file": "Scenario-81/alerts/alerts_at_2025-12-15T18-02-19.760257.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-81/alerts/alerts_at_2025-12-15T18-02-19.760257.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T18:01:19.760125+00:00",
+          "evidence_file": "Scenario-81/alerts/alerts_at_2025-12-15T18-01-19.760125.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-81/alerts/alerts_at_2025-12-15T18-01-19.760125.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T18:01:19.760125+00:00",
+          "evidence_file": "Scenario-81/alerts/alerts_at_2025-12-15T18-01-19.760125.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-81/alerts/alerts_at_2025-12-15T18-01-19.760125.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-81/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-83",
+      "fault": "otel-demo-email-checkout-network-partition",
+      "snapshot_count": 35,
+      "alert_rows": 265,
+      "capture_start": "2025-12-15T17:42:20.442794+00:00",
+      "capture_end": "2025-12-15T18:16:20.442789+00:00",
+      "expected": [
+        {
+          "name": "RequestLatency",
+          "group_id": "checkout-service-1",
+          "service": "checkout-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T18:00:20.440857+00:00",
+          "evidence_file": "Scenario-83/alerts/alerts_at_2025-12-15T18-00-20.440857.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-83/alerts/alerts_at_2025-12-15T18-00-20.440857.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-83/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-91",
+      "fault": "otel-demo-fraud-detection-kafka-network-partition",
+      "snapshot_count": 38,
+      "alert_rows": 279,
+      "capture_start": "2025-12-15T17:45:33.274537+00:00",
+      "capture_end": "2025-12-15T18:22:33.275225+00:00",
+      "expected": [
+        {
+          "name": "KafkaConnectionClosureRate",
+          "group_id": "otel-demo-fraud-detection-kafka-network-partition",
+          "service": "otel-demo-fraud-detection-kafka-network-partition",
+          "namespace": "chaos-mesh",
+          "status": "unknown",
+          "reason": "The declared group cannot be matched to an available resource label conservatively.",
+          "first_observed_at": null,
+          "evidence_file": null,
+          "evidence_url": null
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "fraud-detection-service-1",
+          "service": "fraud-detection-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T17:51:33.270189+00:00",
+          "evidence_file": "Scenario-91/alerts/alerts_at_2025-12-15T17-51-33.270189.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-91/alerts/alerts_at_2025-12-15T17-51-33.270189.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-91/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-102",
+      "fault": "otel-demo-namespace-1",
+      "snapshot_count": 162,
+      "alert_rows": 1126,
+      "capture_start": "2025-12-15T15:30:48.976703+00:00",
+      "capture_end": "2025-12-15T18:11:48.995424+00:00",
+      "expected": [
+        {
+          "name": "NoRequestsDetected",
+          "group_id": "ad-service-1",
+          "service": "ad-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T15:51:48.973701+00:00",
+          "evidence_file": "Scenario-102/alerts/alerts_at_2025-12-15T15-51-48.973701.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-102/alerts/alerts_at_2025-12-15T15-51-48.973701.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-service-1",
+          "service": "frontend-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T15:46:48.972891+00:00",
+          "evidence_file": "Scenario-102/alerts/alerts_at_2025-12-15T15-46-48.972891.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-102/alerts/alerts_at_2025-12-15T15-46-48.972891.json"
+        },
+        {
+          "name": "RequestErrorRate",
+          "group_id": "frontend-proxy-service-1",
+          "service": "frontend-proxy-service-1",
+          "namespace": "otel-demo",
+          "status": "observed",
+          "reason": null,
+          "first_observed_at": "2025-12-15T15:32:48.970708+00:00",
+          "evidence_file": "Scenario-102/alerts/alerts_at_2025-12-15T15-32-48.970708.json",
+          "evidence_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-102/alerts/alerts_at_2025-12-15T15-32-48.970708.json"
+        }
+      ],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-102/ground_truth.yaml"
+    },
+    {
+      "id": "Scenario-105",
+      "fault": "Fault injection",
+      "snapshot_count": 163,
+      "alert_rows": 1883,
+      "capture_start": "2025-12-15T15:29:45.450295+00:00",
+      "capture_end": "2025-12-15T18:12:01.814522+00:00",
+      "expected": [],
+      "ground_truth_url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite/blob/d0916b08ba421ce5e672e9ad68aa947d938dfef0/snapshots/sre/v0.2-B96DF826-4BB2-4B62-97AB-6D84254C53D7/Scenario-105/ground_truth.yaml"
+    }
+  ],
+  "method": "Match each ground-truth alert name to a firing snapshot alert with the declared namespace and full service-name or pod-name regex. A missing match means not observed in the published snapshots, not that monitoring failed or no page was sent."
+}

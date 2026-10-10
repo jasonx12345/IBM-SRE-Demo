@@ -1,0 +1,72 @@
+---
+metadata:
+  version: "v1"
+fault:
+  - entity:
+      name: frontend-proxy
+      kind: Service
+    condition: High latency
+    category: Resource Unavailable
+    fault_mechanism: custom(flagd)
+  - entity:
+      name: flagd-config
+      kind: ConfigMap
+      changed:
+        element: "data.demo\\.flagd\\.json"
+        from: "{\n  \"$schema\": \"https://flagd.dev/schema/v0/flags.json\",\n  \"flags\": {\n    \"productCatalogFailure\": {\n      \"description\": \"Fail product catalog service on a specific product\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"recommendationCacheFailure\": {\n      \"description\": \"Fail recommendation service cache\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"adManualGc\": {\n      \"description\": \"Triggers full manual garbage collections in the ad service\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"adServiceHighCpu\": {\n      \"description\": \"Triggers high cpu load in the ad service\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"adFailure\": {\n      \"description\": \"Fail ad service\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"kafkaQueueProblems\": {\n      \"description\": \"Overloads Kafka queue while simultaneously introducing a consumer side delay leading to a lag spike\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": 100,\n        \"off\": 0\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"cartFailure\": {\n      \"description\": \"Fail cart service\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"paymentFailure\": {\n      \"description\": \"Fail payment service charge requests\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"paymentUnreachable\": {\n      \"description\": \"Payment service is unavailable\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"loadgeneratorFloodHomepage\": {\n      \"description\": \"Flood the frontend with a large amount of requests.\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": 100,\n        \"off\": 0\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"imageSlowLoad\": {\n      \"description\": \"slow loading images in the frontend\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"10sec\": 10000,\n        \"5sec\": 5000,\n        \"off\": 0\n      },\n      \"defaultVariant\": \"off\"\n    }\n  }\n}\n"
+        to: "{\n  \"$schema\": \"https://flagd.dev/schema/v0/flags.json\",\n  \"flags\": {\n    \"productCatalogFailure\": {\n      \"description\": \"Fail product catalog service on a specific product\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"recommendationCacheFailure\": {\n      \"description\": \"Fail recommendation service cache\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"adManualGc\": {\n      \"description\": \"Triggers full manual garbage collections in the ad service\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"adServiceHighCpu\": {\n      \"description\": \"Triggers high cpu load in the ad service\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"adFailure\": {\n      \"description\": \"Fail ad service\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"kafkaQueueProblems\": {\n      \"description\": \"Overloads Kafka queue while simultaneously introducing a consumer side delay leading to a lag spike\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": 100,\n        \"off\": 0\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"cartFailure\": {\n      \"description\": \"Fail cart service\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"paymentFailure\": {\n      \"description\": \"Fail payment service charge requests\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"paymentUnreachable\": {\n      \"description\": \"Payment service is unavailable\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": true,\n        \"off\": false\n      },\n      \"defaultVariant\": \"off\"\n    },\n    \"loadgeneratorFloodHomepage\": {\n      \"description\": \"Flood the frontend with a large amount of requests.\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": 100,\n        \"off\": 0\n      },\n      \"defaultVariant\": \"on\"\n    },\n    \"imageSlowLoad\": {\n      \"description\": \"slow loading images in the frontend\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"10sec\": 10000,\n        \"5sec\": 5000,\n        \"off\": 0\n      },\n      \"defaultVariant\": \"off\"\n    }\n  }\n}\n"
+    condition: loadgeneratorFloodHomepage feature flag set
+    category: Configuration Setting
+    fault_mechanism: custom(flagd)
+groups:
+  - id: flagd-config
+    kind: ConfigMap
+    name: flagd-config
+    namespace: otel-demo
+    root_cause: true
+  - id: load-generator-service-1
+    kind: Service
+    filter:
+      - load-generator\b
+    namespace: otel-demo
+  - id: frontend-proxy-service-1
+    kind: Service
+    filter:
+      - frontend-proxy\b
+    namespace: otel-demo
+  - id: frontend-service-1
+    kind: Service
+    filter:
+      - frontend\b
+    namespace: otel-demo
+alerts:
+  - id: RequestLatency
+    group_id: frontend-proxy-service-1
+    metadata:
+      description: Frontend proxy experiencing high latency due to flood of homepage requests
+  - id: RequestLatency
+    group_id: frontend-service-1
+    metadata:
+      description: Frontend service experiencing high latency from excessive homepage traffic
+propagations:
+  - source: flagd-config
+    target: load-generator-service-1
+    condition: Feature flag triggers load generator to flood frontend with high volume of homepage requests
+    effect: Load generator creates excessive traffic surge targeting the homepage
+  - source: load-generator-service-1
+    target: frontend-proxy-service-1
+    condition: Frontend proxy receives flood of incoming homepage requests from load generator
+    effect: Frontend proxy experiences high latency and resource saturation from excessive traffic
+  - source: frontend-proxy-service-1
+    target: frontend-service-1
+    condition: Frontend proxy forwards high volume of requests to frontend service
+    effect: Frontend service experiences high latency processing excessive homepage traffic
+recommended_actions:
+  - solution:
+      id: Identify the home page flood attack source and stop it
+      actions:
+        - Identify the home page flood attack source and stop it
+  - solution:
+      id: Disable loadgeneratorFloodHomepage flag
+      actions:
+        - Disable loadgeneratorFloodHomepage flag

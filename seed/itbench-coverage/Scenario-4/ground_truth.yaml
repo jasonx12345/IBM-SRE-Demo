@@ -1,0 +1,125 @@
+---
+metadata:
+  version: "v1"
+fault:
+  - entity:
+      name: flagd-config
+      kind: ConfigMap
+      changed:
+        element: "data.demo\\.flagd\\.json"
+        from: '"productCatalogFailure": { "defaultVariant": "off" }'
+        to: '"productCatalogFailure": { "defaultVariant": "on" }'
+    condition: productCatalogFailure feature flag enabled
+    category: Configuration Setting
+    fault_mechanism: custom(flagd)
+alerts:
+  - id: RequestErrorRate
+    group_id: product-catalog-service-1
+    metadata:
+      description: Request error rate in service product-catalog in namespace otel-demo is above 0
+  - id: RequestErrorRate
+    group_id: checkout-service-1
+    metadata:
+      description: Request error rate in service checkout in namespace otel-demo is above 0
+  - id: RequestErrorRate
+    group_id: frontend-service-1
+    metadata:
+      description: Request error rate in service frontend in namespace otel-demo is above 0
+  - id: RequestErrorRate
+    group_id: frontend-proxy-service-1
+    metadata:
+      description: Request error rate in service frontend-proxy in namespace otel-demo is above 0
+groups:
+  - id: flagd-config-1
+    kind: ConfigMap
+    namespace: otel-demo
+    filter:
+      - flagd-config\b
+    root_cause: true
+  - id: flagd-pod-1
+    kind: Pod
+    namespace: otel-demo
+    filter:
+      - flagd-.*
+  - id: flagd-service-1
+    kind: Service
+    namespace: otel-demo
+    filter:
+      - flagd\b
+  - id: product-catalog-service-1
+    kind: Service
+    filter:
+      - product-catalog\b
+    namespace: otel-demo
+  - id: product-catalog-pod-1
+    kind: Pod
+    filter:
+      - product-catalog-.*
+    namespace: otel-demo
+  - id: checkout-service-1
+    kind: Service
+    filter:
+      - checkout\b
+    namespace: otel-demo
+  - id: checkout-pod-1
+    kind: Pod
+    filter:
+      - checkout-.*
+    namespace: otel-demo
+  - id: frontend-service-1
+    kind: Service
+    filter:
+      - frontend\b
+    namespace: otel-demo
+  - id: frontend-pod-1
+    kind: Pod
+    filter:
+      - frontend-.*
+    namespace: otel-demo
+  - id: frontend-proxy-service-1
+    kind: Service
+    filter:
+      - frontend-proxy\b
+    namespace: otel-demo
+  - id: frontend-proxy-pod-1
+    kind: Pod
+    filter:
+      - frontend-proxy-.*
+    namespace: otel-demo
+aliases:
+  - - flagd-pod-1
+    - flagd-service-1
+  - - product-catalog-service-1
+    - product-catalog-pod-1
+  - - checkout-service-1
+    - checkout-pod-1
+  - - frontend-service-1
+    - frontend-pod-1
+  - - frontend-proxy-service-1
+    - frontend-proxy-pod-1
+propagations:
+  - source: flagd-config-1
+    target: flagd-service-1
+    condition: flagd-config ConfigMap productCatalogFailure feature flag enabled
+    effect: flagd enables product catalog failure injection
+  - source: flagd-service-1
+    target: product-catalog-service-1
+    condition: flagd enables product catalog failure injection
+    effect: product-catalog service returns errors for specific product requests
+  - source: product-catalog-service-1
+    target: checkout-service-1
+    condition: checkout service receives errors when retrieving product information
+    effect: checkout service experiences errors during product validation
+  - source: checkout-service-1
+    target: frontend-service-1
+    condition: frontend receives errors from checkout service due to product catalog failures
+    effect: frontend service experiences errors during checkout operations
+  - source: frontend-service-1
+    target: frontend-proxy-service-1
+    condition: frontend-proxy receives errors from frontend service due to checkout failures
+    effect: frontend-proxy service experiences errors when proxying requests
+recommended_actions:
+  - solution:
+      id: disable_productCatalogFailure_feature_flag
+      actions:
+        - Disable productCatalogFailure feature flag in flagd configuration

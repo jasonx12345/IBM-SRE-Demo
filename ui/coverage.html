@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f8fa" />
+  <title>Alert Coverage · IBM ITBench-Lite</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/static/coverage.css" />
+  <script src="/static/coverage.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to report</a>
+  <header class="topbar">
+    <a class="brand" href="/">Alert Coverage<span> / IBM ITBench-Lite</span></a>
+    <a href="/docs/COVERAGE.md" target="_blank" rel="noopener">Method &amp; source ↗</a>
+  </header>
+  <main id="main">
+    <div class="intro">
+      <p class="eyebrow">SRE EXPERIMENT REPORT</p>
+      <h1>Did the expected warnings appear?</h1>
+      <p>IBM Research deliberately injected faults into test systems. This report checks each expected alert against the published alert snapshots.</p>
+    </div>
+    <div id="error" class="error" role="alert" hidden></div>
+    <section class="summary" aria-label="Coverage summary">
+      <div class="summary-card"><span>Expected alerts</span><strong id="expected">—</strong><small>Declared in ground truth</small></div>
+      <div class="summary-card good"><span>Observed</span><strong id="observed">—</strong><small>Matched firing alerts</small></div>
+      <div class="summary-card warn"><span>Not observed</span><strong id="not-observed">—</strong><small>Absent from published snapshots</small></div>
+      <div class="summary-card muted"><span>Unknown</span><strong id="unknown">—</strong><small>Insufficient comparable evidence</small></div>
+    </section>
+    <section class="results" aria-labelledby="experiments-title">
+      <div class="section-head">
+        <div><p class="eyebrow">EXPLORE THE EVIDENCE</p><h2 id="experiments-title">Experiments <span id="scenario-count"></span></h2></div>
+        <label>Show <select id="filter"><option value="all">All experiments</option><option value="not_observed">Needs review</option><option value="unknown">Unknown evidence</option></select></label>
+      </div>
+      <p class="section-note">Open an experiment to see its expected alerts and a direct link to the first matching IBM snapshot.</p>
+      <div id="scenarios" class="scenario-list" aria-live="polite"><p>Loading report…</p></div>
+    </section>
+    <footer>
+      <p><strong>What this means:</strong> “Not observed” means the alert was absent from the published snapshots. It does not prove a monitor failed or that nobody was paged. “Observed” does not prove a page was delivered.</p>
+      <p><a id="source-link" href="https://huggingface.co/datasets/ibm-research/ITBench-Lite" target="_blank" rel="noopener">IBM Research source ↗</a> · <a href="/docs/COVERAGE.md" target="_blank" rel="noopener">Matching method ↗</a> · <a href="/retirement">Earlier alert replay</a></p>
+    </footer>
+  </main>
+</body>
+</html>

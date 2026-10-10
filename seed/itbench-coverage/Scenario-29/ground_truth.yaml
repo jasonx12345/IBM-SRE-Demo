@@ -1,0 +1,70 @@
+---
+metadata:
+  version: "v1"
+fault:
+  - entity:
+      name: jvm-return-otel-demo-ad-1
+      group_id: jvm-return-otel-demo-ad-1
+      kind: Service
+    condition: To Be Specified
+    category: Change
+    fault_mechanism: chaos
+alerts:
+  - id: RequestErrorRate
+    group_id: frontend-service-1
+    metadata:
+      description: Error rate is above threshold for frontend service
+  - id: RequestErrorRate
+    group_id: ad-service-1
+    metadata:
+      description: Error rate is above threshold for ad service
+groups:
+  - id: jvm-return-otel-demo-ad-1
+    kind: JVMChaos
+    filter: 
+      - .*adservice
+    namespace: chaos-mesh
+    root_cause: true
+  - id: ad-pod-1
+    kind: Pod
+    filter:
+      - ad-.*
+    namespace: otel-demo
+  - id: ad-service-1
+    kind: Service
+    filter: 
+      - ad\b
+    namespace: otel-demo
+  - id: frontend-service-1
+    kind: Service
+    filter: 
+      - frontend\b
+    namespace: otel-demo
+  - id: frontend-pod
+    kind: Pod
+    namespace: otel-demo
+    filter:
+      - frontend-.*
+aliases:
+  - - frontend-service-1
+    - frontend-pod
+  - - ad-service-1
+    - ad-pod-1
+propagations:
+  - source: jvm-return-otel-demo-ad-1
+    target: ad-pod-1
+    condition: Return null for method on adservice
+    effect: ad pod null service object
+  - source: ad-pod-1
+    target: ad-service-1
+    condition: ad pod null service object
+    effect: ad service Error Rate is Above Threshold
+  - source: ad-service-1
+    target: frontend-service-1
+    condition: ad service Error Rate is Above Threshold
+    effect: frontend service Error Rate is Above Threshold
+recommended_actions:
+  - solution:
+      id: Delete_the_resource_jvm-return_on_adservice
+      actions:
+        - Delete the resource jvm-return on adservice

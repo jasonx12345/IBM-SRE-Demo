@@ -1,0 +1,59 @@
+---
+metadata:
+  version: "v1"
+fault:
+  - entity:
+      name: fraud-detection
+      kind: Service
+    condition: High Kafka consumer lag and slow message processing
+    category: Resource Unavailable
+    fault_mechanism: custom(flagd)
+  - entity:
+      name: flagd-config
+      kind: ConfigMap
+    changed:
+      element: "data.demo\\.flagd\\.json"
+      from: "\"kafkaQueueProblems\": {\n      \"description\": \"Overloads Kafka queue while simultaneously introducing a consumer side delay leading to a lag spike\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": 100,\n        \"off\": 0\n      },\n      \"defaultVariant\": \"off\"\n    }"
+      to: "\"kafkaQueueProblems\": {\n      \"description\": \"Overloads Kafka queue while simultaneously introducing a consumer side delay leading to a lag spike\",\n      \"state\": \"ENABLED\",\n      \"variants\": {\n        \"on\": 100,\n        \"off\": 0\n      },\n      \"defaultVariant\": \"on\"\n    }"
+    condition: kafkaQueueProblems feature flag set
+    category: Configuration Setting
+    fault_mechanism: custom(flagd)
+groups:
+  - id: flagd-config
+    kind: ConfigMap
+    name: flagd-config
+    namespace: otel-demo
+    root_cause: true
+  - id: fraud-detection-service-1
+    kind: Service
+    filter:
+      - fraud-detection\b
+    namespace: otel-demo
+  - id: kafka-service-1
+    kind: Service
+    filter:
+      - kafka\b
+    namespace: otel-demo
+alerts:
+  - id: RequestLatency
+    group_id: fraud-detection-service-1
+    metadata:
+      description: Fraud detection service experiencing artificial delays from feature flag
+  - id: KafkaConnectionClosureRate
+    group_id: fraud-detection-service-1
+    metadata:
+      description: Fraud detection service Kafka consumer experiencing lag and slow message processing
+propagations:
+  - source: flagd-config
+    target: fraud-detection-service-1
+    condition: Feature flag causes fraud detection service to sleep 1 second when processing Kafka messages
+    effect: Fraud detection consumer processes messages slowly, creating Kafka consumer lag
+  - source: fraud-detection-service-1
+    target: kafka-service-1
+    condition: Slow consumer creates backlog in Kafka queue
+    effect: Kafka queue accumulates unprocessed order messages, increasing consumer lag and time between polls
+recommended_actions:
+  - solution:
+      id: Disable kafkaQueueProblems flag
+      actions:
+        - Disable kafkaQueueProblems flag in flagd configuration

@@ -1,0 +1,150 @@
+[
+    {
+        "labels": {
+            "alertname": "CPUThrottlingHigh",
+            "container": "frontend",
+            "instance": "10.0.158.79:10250",
+            "namespace": "otel-demo",
+            "pod": "frontend-675fd7b5c5-8qrfh",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "info"
+        },
+        "annotations": {
+            "description": "29.94% throttling of CPU in namespace otel-demo for container frontend in pod frontend-675fd7b5c5-8qrfh on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/cputhrottlinghigh",
+            "summary": "Processes experience elevated CPU throttling."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:45:41.867622595Z",
+        "value": "2.9936066190297106e-01"
+    },
+    {
+        "labels": {
+            "alertname": "KubeControllerManagerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:27:10.79698735Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "KubeClientCertificateExpiration",
+            "instance": "10.0.159.141:443",
+            "job": "apiserver",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "A client certificate used to authenticate to kubernetes apiserver is expiring in less than 7.0 days on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeclientcertificateexpiration",
+            "summary": "Client certificate is about to expire."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:50:29.499591411Z",
+        "value": "5.906769230769231e+04"
+    },
+    {
+        "labels": {
+            "alertname": "KubeClientCertificateExpiration",
+            "instance": "10.0.159.141:443",
+            "job": "apiserver",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "A client certificate used to authenticate to kubernetes apiserver is expiring in less than 24.0 hours on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeclientcertificateexpiration",
+            "summary": "Client certificate is about to expire."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:50:29.499591411Z",
+        "value": "5.906769230769231e+04"
+    },
+    {
+        "labels": {
+            "alertname": "RequestErrorRate",
+            "namespace": "otel-demo",
+            "service_name": "frontend-proxy",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Request error rate in service frontend-proxy in namespace otel-demo is above 0 (current: 0.01111111111111111)"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T18:00:13.229243327Z",
+        "value": "1.111111111111111e-02"
+    },
+    {
+        "labels": {
+            "alertname": "KubeSchedulerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:27:01.718795846Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "PrometheusNotConnectedToAlertmanagers",
+            "container": "prometheus",
+            "endpoint": "http-web",
+            "instance": "100.96.2.171:9090",
+            "job": "prometheus-kube-prometheus-prometheus",
+            "namespace": "prometheus",
+            "pod": "prometheus-prometheus-kube-prometheus-prometheus-0",
+            "service": "prometheus-kube-prometheus-prometheus",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Prometheus prometheus/prometheus-prometheus-kube-prometheus-prometheus-0 is not connected to any Alertmanagers.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusnotconnectedtoalertmanagers",
+            "summary": "Prometheus is not connected to any Alertmanagers."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:27:24.25142319Z",
+        "value": "0e+00"
+    },
+    {
+        "labels": {
+            "alertname": "Watchdog",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+            "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:26:49.384058007Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "InfoInhibitor",
+            "alertstate": "pending",
+            "container": "recorder",
+            "instance": "10.0.158.145:10250",
+            "namespace": "data-recorders",
+            "pod": "clickhouse-unified-recorder-lsdrj",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert that is used to inhibit info alerts.\nBy themselves, the info-level alerts are sometimes very noisy, but they are relevant when combined with\nother alerts.\nThis alert fires whenever there's a severity=\"info\" alert, and stops firing when another alert with a\nseverity of 'warning' or 'critical' starts firing on the same namespace.\nThis alert should be routed to a null receiver and configured to inhibit alerts with severity=\"info\".\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/infoinhibitor",
+            "summary": "Info-level alert inhibition."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T18:01:19.384058007Z",
+        "value": "1e+00"
+    }
+]

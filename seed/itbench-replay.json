@@ -1,0 +1,1110 @@
+{
+  "schema_version": 1,
+  "source": {
+    "label": "IBM Research ITBench-Lite \u00b7 two recorded SRE experiments",
+    "description": "Recorded warning/critical alert episodes from fault-injected test systems. Ground-truth service links; first observed firing times. Not customer production data or paging history.",
+    "synthetic": false,
+    "incident_ledger_complete": false,
+    "event_kind": "recorded_alert",
+    "incident_kind": "benchmark_scenario",
+    "url": "https://huggingface.co/datasets/ibm-research/ITBench-Lite",
+    "revision": "d0916b08ba421ce5e672e9ad68aa947d938dfef0",
+    "license": "Apache-2.0"
+  },
+  "window": {
+    "start": "2025-12-15T17:30:09.384366+00:00",
+    "end": "2025-12-15T18:17:09.387696+00:00"
+  },
+  "alerts": [
+    {
+      "id": "1cca546292b2c3de",
+      "name": "KubeClientCertificateExpiration",
+      "service": "apiserver",
+      "scope": {
+        "alertname": "KubeClientCertificateExpiration",
+        "namespace": "",
+        "service_name": "",
+        "job": "apiserver",
+        "severity": "warning"
+      }
+    },
+    {
+      "id": "64b54f6ebd93e7b4",
+      "name": "KubeClientCertificateExpiration",
+      "service": "apiserver",
+      "scope": {
+        "alertname": "KubeClientCertificateExpiration",
+        "namespace": "",
+        "service_name": "",
+        "job": "apiserver",
+        "severity": "critical"
+      }
+    },
+    {
+      "id": "c5b1396c3b1d12da",
+      "name": "KubeControllerManagerDown",
+      "service": "unscoped",
+      "scope": {
+        "alertname": "KubeControllerManagerDown",
+        "namespace": "",
+        "service_name": "",
+        "job": "",
+        "severity": "critical"
+      }
+    },
+    {
+      "id": "c650c4dadab50101",
+      "name": "KubeSchedulerDown",
+      "service": "unscoped",
+      "scope": {
+        "alertname": "KubeSchedulerDown",
+        "namespace": "",
+        "service_name": "",
+        "job": "",
+        "severity": "critical"
+      }
+    },
+    {
+      "id": "f7f38c4675964437",
+      "name": "PrometheusNotConnectedToAlertmanagers",
+      "service": "prometheus-kube-prometheus-prometheus",
+      "scope": {
+        "alertname": "PrometheusNotConnectedToAlertmanagers",
+        "namespace": "prometheus",
+        "service_name": "",
+        "job": "prometheus-kube-prometheus-prometheus",
+        "severity": "warning"
+      }
+    },
+    {
+      "id": "080d009aff3f9a27",
+      "name": "RequestErrorRate",
+      "service": "ad",
+      "scope": {
+        "alertname": "RequestErrorRate",
+        "namespace": "otel-demo",
+        "service_name": "ad",
+        "job": "",
+        "severity": "warning"
+      }
+    },
+    {
+      "id": "5fd3e16cec3d65bc",
+      "name": "RequestErrorRate",
+      "service": "cart",
+      "scope": {
+        "alertname": "RequestErrorRate",
+        "namespace": "otel-demo",
+        "service_name": "cart",
+        "job": "",
+        "severity": "warning"
+      }
+    },
+    {
+      "id": "1cfc9cd71b06dfe0",
+      "name": "RequestErrorRate",
+      "service": "checkout",
+      "scope": {
+        "alertname": "RequestErrorRate",
+        "namespace": "otel-demo",
+        "service_name": "checkout",
+        "job": "",
+        "severity": "warning"
+      }
+    },
+    {
+      "id": "cb014e41f6a0aa06",
+      "name": "RequestErrorRate",
+      "service": "fraud-detection",
+      "scope": {
+        "alertname": "RequestErrorRate",
+        "namespace": "otel-demo",
+        "service_name": "fraud-detection",
+        "job": "",
+        "severity": "warning"
+      }
+    },
+    {
+      "id": "9ec6104a3db53d5f",
+      "name": "RequestErrorRate",
+      "service": "frontend",
+      "scope": {
+        "alertname": "RequestErrorRate",
+        "namespace": "otel-demo",
+        "service_name": "frontend",
+        "job": "",
+        "severity": "warning"
+      }
+    },
+    {
+      "id": "052b4da1a6b3002c",
+      "name": "RequestErrorRate",
+      "service": "frontend-proxy",
+      "scope": {
+        "alertname": "RequestErrorRate",
+        "namespace": "otel-demo",
+        "service_name": "frontend-proxy",
+        "job": "",
+        "severity": "warning"
+      }
+    },
+    {
+      "id": "1b7cd0dfbac756b8",
+      "name": "RequestErrorRate",
+      "service": "recommendation",
+      "scope": {
+        "alertname": "RequestErrorRate",
+        "namespace": "otel-demo",
+        "service_name": "recommendation",
+        "job": "",
+        "severity": "warning"
+      }
+    },
+    {
+      "id": "fd2c7d012eaa4fd9",
+      "name": "RequestLatency",
+      "service": "frontend-proxy",
+      "scope": {
+        "alertname": "RequestLatency",
+        "namespace": "otel-demo",
+        "service_name": "frontend-proxy",
+        "job": "",
+        "severity": "warning"
+      }
+    }
+  ],
+  "incidents": [
+    {
+      "id": "Scenario-1",
+      "title": "Frontend proxy overload",
+      "started_at": "2025-12-15T17:30:09.384366+00:00",
+      "ended_at": "2025-12-15T18:17:09.387695+00:00"
+    },
+    {
+      "id": "Scenario-2",
+      "title": "Cart failure feature flag",
+      "started_at": "2025-12-15T17:30:49.329092+00:00",
+      "ended_at": "2025-12-15T18:03:49.327712+00:00"
+    }
+  ],
+  "events": [
+    {
+      "id": "Scenario-1-40bf02b619f58d7dd052",
+      "alert_id": "64b54f6ebd93e7b4",
+      "fired_at": "2025-12-15T17:30:09.384366+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-1",
+        "source_file": "Scenario-1/alerts/alerts_at_2025-12-15T17-30-09.384366.json",
+        "labels": {
+          "alertname": "KubeClientCertificateExpiration",
+          "instance": "10.0.166.142:443",
+          "job": "apiserver",
+          "severity": "critical"
+        },
+        "active_at": "2025-12-15T17:24:02.466081961Z",
+        "first_observed_at": "2025-12-15T17:30:09.384366+00:00",
+        "last_observed_at": "2025-12-15T17:39:09.381400+00:00",
+        "observation_count": 10,
+        "present_at_capture_start": true,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-1-8025b4ea0949efedca33",
+      "alert_id": "9ec6104a3db53d5f",
+      "fired_at": "2025-12-15T17:30:09.384366+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-1",
+        "source_file": "Scenario-1/alerts/alerts_at_2025-12-15T17-30-09.384366.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "frontend",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:25:19.431042761Z",
+        "first_observed_at": "2025-12-15T17:30:09.384366+00:00",
+        "last_observed_at": "2025-12-15T18:17:09.387695+00:00",
+        "observation_count": 48,
+        "present_at_capture_start": true,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-1-950d7b4bcfe86bfeacb2",
+      "alert_id": "fd2c7d012eaa4fd9",
+      "fired_at": "2025-12-15T17:30:09.384366+00:00",
+      "severity": "recorded",
+      "incident_id": "Scenario-1",
+      "provenance": {
+        "scenario": "Scenario-1",
+        "source_file": "Scenario-1/alerts/alerts_at_2025-12-15T17-30-09.384366.json",
+        "labels": {
+          "alertname": "RequestLatency",
+          "namespace": "otel-demo",
+          "service_name": "frontend-proxy",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:25:19.431042761Z",
+        "first_observed_at": "2025-12-15T17:30:09.384366+00:00",
+        "last_observed_at": "2025-12-15T18:17:09.387695+00:00",
+        "observation_count": 48,
+        "present_at_capture_start": true,
+        "ground_truth_group": "frontend-proxy-service-1",
+        "link_basis": "ground-truth alert name, namespace and service"
+      }
+    },
+    {
+      "id": "Scenario-1-9771fcf62436638a810f",
+      "alert_id": "052b4da1a6b3002c",
+      "fired_at": "2025-12-15T17:30:09.384366+00:00",
+      "severity": "recorded",
+      "incident_id": "Scenario-1",
+      "provenance": {
+        "scenario": "Scenario-1",
+        "source_file": "Scenario-1/alerts/alerts_at_2025-12-15T17-30-09.384366.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "frontend-proxy",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:25:19.431042761Z",
+        "first_observed_at": "2025-12-15T17:30:09.384366+00:00",
+        "last_observed_at": "2025-12-15T18:17:09.387695+00:00",
+        "observation_count": 48,
+        "present_at_capture_start": true,
+        "ground_truth_group": "frontend-proxy-service-1",
+        "link_basis": "ground-truth alert name, namespace and service"
+      }
+    },
+    {
+      "id": "Scenario-1-ee53265b37fd08d8e8b7",
+      "alert_id": "1cfc9cd71b06dfe0",
+      "fired_at": "2025-12-15T17:30:09.384366+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-1",
+        "source_file": "Scenario-1/alerts/alerts_at_2025-12-15T17-30-09.384366.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "checkout",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:25:19.431042761Z",
+        "first_observed_at": "2025-12-15T17:30:09.384366+00:00",
+        "last_observed_at": "2025-12-15T18:17:09.387695+00:00",
+        "observation_count": 48,
+        "present_at_capture_start": true,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-1-fc023d6d239668f0a813",
+      "alert_id": "1cca546292b2c3de",
+      "fired_at": "2025-12-15T17:30:09.384366+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-1",
+        "source_file": "Scenario-1/alerts/alerts_at_2025-12-15T17-30-09.384366.json",
+        "labels": {
+          "alertname": "KubeClientCertificateExpiration",
+          "instance": "10.0.166.142:443",
+          "job": "apiserver",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:24:02.466081961Z",
+        "first_observed_at": "2025-12-15T17:30:09.384366+00:00",
+        "last_observed_at": "2025-12-15T17:39:09.381400+00:00",
+        "observation_count": 10,
+        "present_at_capture_start": true,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-3e0a7140743dde40a1bd",
+      "alert_id": "052b4da1a6b3002c",
+      "fired_at": "2025-12-15T17:30:49.329092+00:00",
+      "severity": "recorded",
+      "incident_id": "Scenario-2",
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-30-49.329092.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "frontend-proxy",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:24:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:30:49.329092+00:00",
+        "last_observed_at": "2025-12-15T17:37:49.323947+00:00",
+        "observation_count": 8,
+        "present_at_capture_start": true,
+        "ground_truth_group": "frontend-proxy-service-1",
+        "link_basis": "ground-truth alert name, namespace and service"
+      }
+    },
+    {
+      "id": "Scenario-2-a01b33d74166119ff839",
+      "alert_id": "1cca546292b2c3de",
+      "fired_at": "2025-12-15T17:30:49.329092+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-30-49.329092.json",
+        "labels": {
+          "alertname": "KubeClientCertificateExpiration",
+          "instance": "10.0.185.154:443",
+          "job": "apiserver",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:23:58.696101656Z",
+        "first_observed_at": "2025-12-15T17:30:49.329092+00:00",
+        "last_observed_at": "2025-12-15T17:39:49.324126+00:00",
+        "observation_count": 10,
+        "present_at_capture_start": true,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-c830a5e135a51edd6247",
+      "alert_id": "64b54f6ebd93e7b4",
+      "fired_at": "2025-12-15T17:30:49.329092+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-30-49.329092.json",
+        "labels": {
+          "alertname": "KubeClientCertificateExpiration",
+          "instance": "10.0.185.154:443",
+          "job": "apiserver",
+          "severity": "critical"
+        },
+        "active_at": "2025-12-15T17:23:58.696101656Z",
+        "first_observed_at": "2025-12-15T17:30:49.329092+00:00",
+        "last_observed_at": "2025-12-15T17:39:49.324126+00:00",
+        "observation_count": 10,
+        "present_at_capture_start": true,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-355c5fa3c51006ac4261",
+      "alert_id": "cb014e41f6a0aa06",
+      "fired_at": "2025-12-15T17:33:49.323960+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-33-49.323960.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "fraud-detection",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:31:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:33:49.323960+00:00",
+        "last_observed_at": "2025-12-15T17:33:49.323960+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-a893b280c1e3d69aaa0f",
+      "alert_id": "f7f38c4675964437",
+      "fired_at": "2025-12-15T17:33:49.323960+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-33-49.323960.json",
+        "labels": {
+          "alertname": "PrometheusNotConnectedToAlertmanagers",
+          "container": "prometheus",
+          "endpoint": "http-web",
+          "instance": "100.96.2.199:9090",
+          "job": "prometheus-kube-prometheus-prometheus",
+          "namespace": "prometheus",
+          "pod": "prometheus-prometheus-kube-prometheus-prometheus-0",
+          "service": "prometheus-kube-prometheus-prometheus",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:23:21.702836404Z",
+        "first_observed_at": "2025-12-15T17:33:49.323960+00:00",
+        "last_observed_at": "2025-12-15T18:03:49.327712+00:00",
+        "observation_count": 31,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-1-3eb0722520e4b7456124",
+      "alert_id": "f7f38c4675964437",
+      "fired_at": "2025-12-15T17:34:09.380692+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-1",
+        "source_file": "Scenario-1/alerts/alerts_at_2025-12-15T17-34-09.380692.json",
+        "labels": {
+          "alertname": "PrometheusNotConnectedToAlertmanagers",
+          "container": "prometheus",
+          "endpoint": "http-web",
+          "instance": "100.96.3.12:9090",
+          "job": "prometheus-kube-prometheus-prometheus",
+          "namespace": "prometheus",
+          "pod": "prometheus-prometheus-kube-prometheus-prometheus-0",
+          "service": "prometheus-kube-prometheus-prometheus",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:23:51.749891565Z",
+        "first_observed_at": "2025-12-15T17:34:09.380692+00:00",
+        "last_observed_at": "2025-12-15T18:17:09.387695+00:00",
+        "observation_count": 44,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-986380685aecb95d94ec",
+      "alert_id": "080d009aff3f9a27",
+      "fired_at": "2025-12-15T17:35:49.323927+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-35-49.323927.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "ad",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:33:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:35:49.323927+00:00",
+        "last_observed_at": "2025-12-15T17:35:49.323927+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-1-78b13c391405cd9ca839",
+      "alert_id": "c650c4dadab50101",
+      "fired_at": "2025-12-15T17:38:09.381218+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-1",
+        "source_file": "Scenario-1/alerts/alerts_at_2025-12-15T17-38-09.381218.json",
+        "labels": {
+          "alertname": "KubeSchedulerDown",
+          "severity": "critical"
+        },
+        "active_at": "2025-12-15T17:23:03.093305093Z",
+        "first_observed_at": "2025-12-15T17:38:09.381218+00:00",
+        "last_observed_at": "2025-12-15T18:17:09.387695+00:00",
+        "observation_count": 40,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-1-c795fb35692ac03606a1",
+      "alert_id": "c5b1396c3b1d12da",
+      "fired_at": "2025-12-15T17:38:09.381218+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-1",
+        "source_file": "Scenario-1/alerts/alerts_at_2025-12-15T17-38-09.381218.json",
+        "labels": {
+          "alertname": "KubeControllerManagerDown",
+          "severity": "critical"
+        },
+        "active_at": "2025-12-15T17:23:03.0192481Z",
+        "first_observed_at": "2025-12-15T17:38:09.381218+00:00",
+        "last_observed_at": "2025-12-15T18:17:09.387695+00:00",
+        "observation_count": 40,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-c0422dd111bd86c4ab80",
+      "alert_id": "c5b1396c3b1d12da",
+      "fired_at": "2025-12-15T17:38:49.324334+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-38-49.324334.json",
+        "labels": {
+          "alertname": "KubeControllerManagerDown",
+          "severity": "critical"
+        },
+        "active_at": "2025-12-15T17:23:09.33048188Z",
+        "first_observed_at": "2025-12-15T17:38:49.324334+00:00",
+        "last_observed_at": "2025-12-15T18:03:49.327712+00:00",
+        "observation_count": 26,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-c3fbc9735ace492f8256",
+      "alert_id": "c650c4dadab50101",
+      "fired_at": "2025-12-15T17:38:49.324334+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-38-49.324334.json",
+        "labels": {
+          "alertname": "KubeSchedulerDown",
+          "severity": "critical"
+        },
+        "active_at": "2025-12-15T17:23:00.782915619Z",
+        "first_observed_at": "2025-12-15T17:38:49.324334+00:00",
+        "last_observed_at": "2025-12-15T18:03:49.327712+00:00",
+        "observation_count": 26,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-43c7dfecc401c7f16dfe",
+      "alert_id": "1b7cd0dfbac756b8",
+      "fired_at": "2025-12-15T17:39:49.324126+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-39-49.324126.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "recommendation",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:37:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:39:49.324126+00:00",
+        "last_observed_at": "2025-12-15T17:39:49.324126+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-a214b435fa5db929587c",
+      "alert_id": "cb014e41f6a0aa06",
+      "fired_at": "2025-12-15T17:42:49.324667+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-42-49.324667.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "fraud-detection",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:40:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:42:49.324667+00:00",
+        "last_observed_at": "2025-12-15T17:42:49.324667+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-a5d1632f3909ee0d2138",
+      "alert_id": "080d009aff3f9a27",
+      "fired_at": "2025-12-15T17:44:49.325054+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-44-49.325054.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "ad",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:42:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:44:49.325054+00:00",
+        "last_observed_at": "2025-12-15T17:44:49.325054+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-2247eb98e158c0e4dcd3",
+      "alert_id": "052b4da1a6b3002c",
+      "fired_at": "2025-12-15T17:45:49.324913+00:00",
+      "severity": "recorded",
+      "incident_id": "Scenario-2",
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-45-49.324913.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "frontend-proxy",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:43:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:45:49.324913+00:00",
+        "last_observed_at": "2025-12-15T17:53:49.326257+00:00",
+        "observation_count": 9,
+        "present_at_capture_start": false,
+        "ground_truth_group": "frontend-proxy-service-1",
+        "link_basis": "ground-truth alert name, namespace and service"
+      }
+    },
+    {
+      "id": "Scenario-2-45bb3d972ca5eb1e781c",
+      "alert_id": "1b7cd0dfbac756b8",
+      "fired_at": "2025-12-15T17:49:49.325932+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-49-49.325932.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "recommendation",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:47:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:49:49.325932+00:00",
+        "last_observed_at": "2025-12-15T17:49:49.325932+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-85299acbfe7b7477c672",
+      "alert_id": "9ec6104a3db53d5f",
+      "fired_at": "2025-12-15T17:49:49.325932+00:00",
+      "severity": "recorded",
+      "incident_id": "Scenario-2",
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-49-49.325932.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "frontend",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:47:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:49:49.325932+00:00",
+        "last_observed_at": "2025-12-15T17:49:49.325932+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": "frontend-service-1",
+        "link_basis": "ground-truth alert name, namespace and service"
+      }
+    },
+    {
+      "id": "Scenario-2-6025f88a4660ffab62a6",
+      "alert_id": "1cfc9cd71b06dfe0",
+      "fired_at": "2025-12-15T17:50:49.325943+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-50-49.325943.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "checkout",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:48:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:50:49.325943+00:00",
+        "last_observed_at": "2025-12-15T17:50:49.325943+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-d74839c863617a6aa29a",
+      "alert_id": "5fd3e16cec3d65bc",
+      "fired_at": "2025-12-15T17:50:49.325943+00:00",
+      "severity": "recorded",
+      "incident_id": "Scenario-2",
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-50-49.325943.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "cart",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:48:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:50:49.325943+00:00",
+        "last_observed_at": "2025-12-15T17:50:49.325943+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": "cart-service-1",
+        "link_basis": "ground-truth alert name, namespace and service"
+      }
+    },
+    {
+      "id": "Scenario-2-acc8d0a4d565ad99c01d",
+      "alert_id": "64b54f6ebd93e7b4",
+      "fired_at": "2025-12-15T17:51:49.326355+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-51-49.326355.json",
+        "labels": {
+          "alertname": "KubeClientCertificateExpiration",
+          "instance": "10.0.185.154:443",
+          "job": "apiserver",
+          "severity": "critical"
+        },
+        "active_at": "2025-12-15T17:45:58.696101656Z",
+        "first_observed_at": "2025-12-15T17:51:49.326355+00:00",
+        "last_observed_at": "2025-12-15T17:51:49.326355+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-d9e3a902f675cb47e522",
+      "alert_id": "1cca546292b2c3de",
+      "fired_at": "2025-12-15T17:51:49.326355+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-51-49.326355.json",
+        "labels": {
+          "alertname": "KubeClientCertificateExpiration",
+          "instance": "10.0.185.154:443",
+          "job": "apiserver",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:45:58.696101656Z",
+        "first_observed_at": "2025-12-15T17:51:49.326355+00:00",
+        "last_observed_at": "2025-12-15T17:51:49.326355+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-6ce0bf62343932816144",
+      "alert_id": "cb014e41f6a0aa06",
+      "fired_at": "2025-12-15T17:52:49.326455+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-52-49.326455.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "fraud-detection",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:50:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:52:49.326455+00:00",
+        "last_observed_at": "2025-12-15T17:52:49.326455+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-1-6a44dcab68939ba24c56",
+      "alert_id": "1cca546292b2c3de",
+      "fired_at": "2025-12-15T17:53:09.383213+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-1",
+        "source_file": "Scenario-1/alerts/alerts_at_2025-12-15T17-53-09.383213.json",
+        "labels": {
+          "alertname": "KubeClientCertificateExpiration",
+          "instance": "10.0.166.142:443",
+          "job": "apiserver",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:47:32.466081961Z",
+        "first_observed_at": "2025-12-15T17:53:09.383213+00:00",
+        "last_observed_at": "2025-12-15T17:55:09.383832+00:00",
+        "observation_count": 3,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-1-87d007df0f23606597bf",
+      "alert_id": "64b54f6ebd93e7b4",
+      "fired_at": "2025-12-15T17:53:09.383213+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-1",
+        "source_file": "Scenario-1/alerts/alerts_at_2025-12-15T17-53-09.383213.json",
+        "labels": {
+          "alertname": "KubeClientCertificateExpiration",
+          "instance": "10.0.166.142:443",
+          "job": "apiserver",
+          "severity": "critical"
+        },
+        "active_at": "2025-12-15T17:47:32.466081961Z",
+        "first_observed_at": "2025-12-15T17:53:09.383213+00:00",
+        "last_observed_at": "2025-12-15T17:55:09.383832+00:00",
+        "observation_count": 3,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-e5e1da0713c35d51589d",
+      "alert_id": "080d009aff3f9a27",
+      "fired_at": "2025-12-15T17:54:49.326296+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-54-49.326296.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "ad",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:52:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:54:49.326296+00:00",
+        "last_observed_at": "2025-12-15T17:54:49.326296+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-b19b3a5144b0a7af40ac",
+      "alert_id": "052b4da1a6b3002c",
+      "fired_at": "2025-12-15T17:56:49.326767+00:00",
+      "severity": "recorded",
+      "incident_id": "Scenario-2",
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-56-49.326767.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "frontend-proxy",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:54:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:56:49.326767+00:00",
+        "last_observed_at": "2025-12-15T17:56:49.326767+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": "frontend-proxy-service-1",
+        "link_basis": "ground-truth alert name, namespace and service"
+      }
+    },
+    {
+      "id": "Scenario-2-38ed4738c701d0864628",
+      "alert_id": "052b4da1a6b3002c",
+      "fired_at": "2025-12-15T17:59:49.327162+00:00",
+      "severity": "recorded",
+      "incident_id": "Scenario-2",
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-59-49.327162.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "frontend-proxy",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:57:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:59:49.327162+00:00",
+        "last_observed_at": "2025-12-15T17:59:49.327162+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": "frontend-proxy-service-1",
+        "link_basis": "ground-truth alert name, namespace and service"
+      }
+    },
+    {
+      "id": "Scenario-2-d5c05aa3bd8ef850c701",
+      "alert_id": "cb014e41f6a0aa06",
+      "fired_at": "2025-12-15T17:59:49.327162+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-59-49.327162.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "fraud-detection",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:57:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:59:49.327162+00:00",
+        "last_observed_at": "2025-12-15T17:59:49.327162+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-ffcd004f7a091f42e451",
+      "alert_id": "1b7cd0dfbac756b8",
+      "fired_at": "2025-12-15T17:59:49.327162+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T17-59-49.327162.json",
+        "labels": {
+          "alertname": "RequestErrorRate",
+          "namespace": "otel-demo",
+          "service_name": "recommendation",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:57:50.488970782Z",
+        "first_observed_at": "2025-12-15T17:59:49.327162+00:00",
+        "last_observed_at": "2025-12-15T17:59:49.327162+00:00",
+        "observation_count": 1,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-8f58f2359b5f9a93fb86",
+      "alert_id": "1cca546292b2c3de",
+      "fired_at": "2025-12-15T18:01:49.327679+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T18-01-49.327679.json",
+        "labels": {
+          "alertname": "KubeClientCertificateExpiration",
+          "instance": "10.0.185.154:443",
+          "job": "apiserver",
+          "severity": "warning"
+        },
+        "active_at": "2025-12-15T17:55:58.696101656Z",
+        "first_observed_at": "2025-12-15T18:01:49.327679+00:00",
+        "last_observed_at": "2025-12-15T18:03:49.327712+00:00",
+        "observation_count": 3,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    },
+    {
+      "id": "Scenario-2-ecb8dea6c50da30ffa6e",
+      "alert_id": "64b54f6ebd93e7b4",
+      "fired_at": "2025-12-15T18:01:49.327679+00:00",
+      "severity": "recorded",
+      "incident_id": null,
+      "provenance": {
+        "scenario": "Scenario-2",
+        "source_file": "Scenario-2/alerts/alerts_at_2025-12-15T18-01-49.327679.json",
+        "labels": {
+          "alertname": "KubeClientCertificateExpiration",
+          "instance": "10.0.185.154:443",
+          "job": "apiserver",
+          "severity": "critical"
+        },
+        "active_at": "2025-12-15T17:55:58.696101656Z",
+        "first_observed_at": "2025-12-15T18:01:49.327679+00:00",
+        "last_observed_at": "2025-12-15T18:03:49.327712+00:00",
+        "observation_count": 3,
+        "present_at_capture_start": false,
+        "ground_truth_group": null,
+        "link_basis": "unmatched"
+      }
+    }
+  ],
+  "provenance": {
+    "manifest_sha256": "c78093b78ba0ba4301ea5d96eff653934e0835d848f8e040a073983431a3dbbd",
+    "captures": [
+      {
+        "id": "Scenario-1",
+        "start": "2025-12-15T17:30:09.384366+00:00",
+        "end": "2025-12-15T18:17:09.387695+00:00",
+        "snapshot_files": 48,
+        "matched_ground_truth_alerts": 2,
+        "unmatched_ground_truth_alerts": []
+      },
+      {
+        "id": "Scenario-2",
+        "start": "2025-12-15T17:30:49.329092+00:00",
+        "end": "2025-12-15T18:03:49.327712+00:00",
+        "snapshot_files": 34,
+        "matched_ground_truth_alerts": 3,
+        "unmatched_ground_truth_alerts": []
+      }
+    ],
+    "import_counts": {
+      "snapshot_files": 82,
+      "raw_rows": 772,
+      "excluded_rows": 287,
+      "duplicate_rows": 448
+    },
+    "timestamp_basis": "First snapshot containing this episode in firing state; filename clock interpreted as UTC. activeAt is preserved, not treated as notification time."
+  }
+}

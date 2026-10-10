@@ -1,0 +1,15 @@
+# TUNABLE judgement calls. Evaluation order: delete, tune, automate, keep_human.
+automate:
+  min_manual_rate: 0.6
+  min_runbook_repeat: 0.7
+  min_occurrences: 10
+tune:
+  min_occurrences: 30
+  max_incident_rate: 0.2
+  min_auto_resolve: 0.5
+delete:
+  min_occurrences: 30
+  max_manual_rate: 0.1
+  max_incident_rate: 0.05
+keep_human:
+  max_occurrences: 10

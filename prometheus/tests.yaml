@@ -1,0 +1,79 @@
+# Run in the Prometheus container; the checked-in rule file is mounted here.
+rule_files:
+  - /etc/prometheus/rules.yaml
+evaluation_interval: 1m
+tests:
+  - name: sustained errors consume availability budget
+    interval: 1m
+    input_series:
+      - series: 'toil_budget_http_requests_total{job="toil-budget",scope="api",status="200"}'
+        values: '0+80x90'
+      - series: 'toil_budget_http_requests_total{job="toil-budget",scope="api",status="500"}'
+        values: '0+20x90'
+    alert_rule_test:
+      - eval_time: 75m
+        alertname: ToilBudgetAvailabilityFastBurn
+        exp_alerts:
+          - exp_labels:
+              severity: critical
+              service: toil-budget
+              slo: error
+            exp_annotations:
+              summary: Toil Budget API availability SLO burning at >14.4x
+              description: Both 1h and 5m exceed the burn threshold. Check app logs, DB readiness, CPU/memory and request latency. See docs/OPERATIONS.md.
+  - name: sustained slow requests consume latency budget
+    interval: 1m
+    input_series:
+      - series: 'toil_budget_http_request_duration_seconds_count{job="toil-budget",scope="api"}'
+        values: '0+100x90'
+      - series: 'toil_budget_http_request_duration_seconds_bucket{job="toil-budget",scope="api",le="0.3"}'
+        values: '0+70x90'
+    alert_rule_test:
+      - eval_time: 75m
+        alertname: ToilBudgetLatencyFastBurn
+        exp_alerts:
+          - exp_labels:
+              severity: critical
+              service: toil-budget
+              slo: slow
+            exp_annotations:
+              summary: Toil Budget API latency SLO burning at >14.4x
+              description: Both 1h and 5m exceed the burn threshold. Check app logs, DB readiness, CPU/memory and request latency. See docs/OPERATIONS.md.
+  - name: healthy traffic without a 5xx series has no burn
+    interval: 1m
+    input_series:
+      - series: 'toil_budget_http_requests_total{job="toil-budget",scope="api",status="200"}'
+        values: '0+100x90'
+      - series: 'toil_budget_http_request_duration_seconds_count{job="toil-budget",scope="api"}'
+        values: '0+100x90'
+      - series: 'toil_budget_http_request_duration_seconds_bucket{job="toil-budget",scope="api",le="0.3"}'
+        values: '0+100x90'
+    alert_rule_test:
+      - eval_time: 75m
+        alertname: ToilBudgetAvailabilityFastBurn
+        exp_alerts: []
+      - eval_time: 75m
+        alertname: ToilBudgetLatencyFastBurn
+        exp_alerts: []
+    promql_expr_test:
+      - expr: toil_budget:api_error_ratio:5m
+        eval_time: 75m
+        exp_samples:
+          - labels: 'toil_budget:api_error_ratio:5m'
+            value: 0
+  - name: no traffic does not page
+    interval: 1m
+    input_series:
+      - series: 'toil_budget_http_requests_total{job="toil-budget",scope="api",status="200"}'
+        values: '0+0x90'
+      - series: 'toil_budget_http_request_duration_seconds_count{job="toil-budget",scope="api"}'
+        values: '0+0x90'
+      - series: 'toil_budget_http_request_duration_seconds_bucket{job="toil-budget",scope="api",le="0.3"}'
+        values: '0+0x90'
+    alert_rule_test:
+      - eval_time: 75m
+        alertname: ToilBudgetAvailabilityFastBurn
+        exp_alerts: []
+      - eval_time: 75m
+        alertname: ToilBudgetLatencyFastBurn
+        exp_alerts: []

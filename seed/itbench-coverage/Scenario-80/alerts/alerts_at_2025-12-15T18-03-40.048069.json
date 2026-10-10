@@ -1,0 +1,165 @@
+[
+    {
+        "labels": {
+            "alertname": "RequestLatency",
+            "namespace": "otel-demo",
+            "service_name": "frontend-proxy",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Latency in service frontend-proxy in namespace otel-demo is above 1500ms (current: 4587.4999999999945s)"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T18:01:31.067025518Z",
+        "value": "4.5874999999999945e+03"
+    },
+    {
+        "labels": {
+            "alertname": "RequestErrorRate",
+            "namespace": "otel-demo",
+            "service_name": "frontend-proxy",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Request error rate in service frontend-proxy in namespace otel-demo is above 0 (current: 0.31111111111111106)"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:34:31.067025518Z",
+        "value": "3.1111111111111106e-01"
+    },
+    {
+        "labels": {
+            "alertname": "NoRequestsDetected",
+            "namespace": "otel-demo",
+            "service_name": "accounting",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Service accounting in namespace otel-demo has 0 requests"
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:33:22.956417384Z",
+        "value": "0e+00"
+    },
+    {
+        "labels": {
+            "alertname": "CPUThrottlingHigh",
+            "container": "postgresql",
+            "instance": "10.0.115.194:10250",
+            "namespace": "otel-demo",
+            "pod": "postgresql-c7fd45b87-ggg9s",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "info"
+        },
+        "annotations": {
+            "description": "47.42% throttling of CPU in namespace otel-demo for container postgresql in pod postgresql-c7fd45b87-ggg9s on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/cputhrottlinghigh",
+            "summary": "Processes experience elevated CPU throttling."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:32:50.798314926Z",
+        "value": "4.742268041237113e-01"
+    },
+    {
+        "labels": {
+            "alertname": "CPUThrottlingHigh",
+            "container": "frontend",
+            "instance": "10.0.114.74:10250",
+            "namespace": "otel-demo",
+            "pod": "frontend-675fd7b5c5-djtdf",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "info"
+        },
+        "annotations": {
+            "description": "33.86% throttling of CPU in namespace otel-demo for container frontend in pod frontend-675fd7b5c5-djtdf on cluster .",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/cputhrottlinghigh",
+            "summary": "Processes experience elevated CPU throttling."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:32:50.798314926Z",
+        "value": "3.385917660638707e-01"
+    },
+    {
+        "labels": {
+            "alertname": "KubeSchedulerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:32:23.806971819Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "KubeControllerManagerDown",
+            "severity": "critical"
+        },
+        "annotations": {
+            "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+            "summary": "Target disappeared from Prometheus target discovery."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:32:41.54883141Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "Watchdog",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+            "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:32:29.574120962Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "InfoInhibitor",
+            "alertstate": "pending",
+            "container": "recorder",
+            "instance": "10.0.115.194:10250",
+            "namespace": "data-recorders",
+            "pod": "clickhouse-unified-recorder-th42k",
+            "service": "prometheus-kube-prometheus-kubelet",
+            "severity": "none"
+        },
+        "annotations": {
+            "description": "This is an alert that is used to inhibit info alerts.\nBy themselves, the info-level alerts are sometimes very noisy, but they are relevant when combined with\nother alerts.\nThis alert fires whenever there's a severity=\"info\" alert, and stops firing when another alert with a\nseverity of 'warning' or 'critical' starts firing on the same namespace.\nThis alert should be routed to a null receiver and configured to inhibit alerts with severity=\"info\".\n",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/infoinhibitor",
+            "summary": "Info-level alert inhibition."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T18:02:59.574120962Z",
+        "value": "1e+00"
+    },
+    {
+        "labels": {
+            "alertname": "PrometheusNotConnectedToAlertmanagers",
+            "container": "prometheus",
+            "endpoint": "http-web",
+            "instance": "100.96.4.7:9090",
+            "job": "prometheus-kube-prometheus-prometheus",
+            "namespace": "prometheus",
+            "pod": "prometheus-prometheus-kube-prometheus-prometheus-0",
+            "service": "prometheus-kube-prometheus-prometheus",
+            "severity": "warning"
+        },
+        "annotations": {
+            "description": "Prometheus prometheus/prometheus-prometheus-kube-prometheus-prometheus-0 is not connected to any Alertmanagers.",
+            "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusnotconnectedtoalertmanagers",
+            "summary": "Prometheus is not connected to any Alertmanagers."
+        },
+        "state": "firing",
+        "activeAt": "2025-12-15T17:32:55.398569937Z",
+        "value": "0e+00"
+    }
+]

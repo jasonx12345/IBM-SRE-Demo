@@ -1,0 +1,152 @@
+---
+metadata:
+  version: "v1"
+fault:
+  - entity:
+      name: frontend
+      kind: Service
+    condition: High HTTP error rate
+    category: Resource Saturation
+    fault_mechanism: custom(flagd)
+  - entity:
+      name: product-catalog
+      kind: Service
+    condition: High HTTP error rate
+    category: Resource Unavailable
+    fault_mechanism: custom(flagd)
+  - entity:
+      name: flagd-config
+      group_id: flagd-config-1
+      kind: ConfigMap
+    condition: adServiceHighCpu feature flag set
+    category: Configuration Setting
+    fault_mechanism: custom(flagd)
+alerts:
+  - id: RequestErrorRate
+    group_id: frontend-service-1
+    metadata:
+      description: Error Rate is Above Threshold
+groups:
+  - id: flagd-config-1
+    kind: ConfigMap
+    name: flagd-config
+    namespace: otel-demo
+    root_cause: true
+  - id: flagd-pod-1
+    kind: Pod
+    namespace: otel-demo
+    filter:
+      - flagd-.*
+  - id: flagd-service-1
+    kind: Service
+    namespace: otel-demo
+    filter: 
+    - flagd
+  - id: recommendation-pod-1
+    kind: Pod
+    filter:
+      - recommendation-.*
+    namespace: otel-demo
+  - id: recommendation-service-1
+    kind: Service
+    filter: 
+    - recommendation\b
+    namespace: otel-demo
+  - id: frontend-service-1
+    kind: Service
+    filter: 
+    - frontend\b
+    namespace: otel-demo
+  - id: frontend-pod-1
+    kind: Pod
+    namespace: otel-demo
+    filter:
+      - frontend-.*
+  - id: products-endpoint-2
+    kind: ServiceOperation
+    namespace: otel-demo
+    filter:
+    - "product-catalog-.*_ProductCatalogService_GetProduct"
+  - id: productcatalog-service-2
+    kind: Service
+    filter: 
+    - product-catalog\b
+    namespace: otel-demo
+  - id: checkout-service-2
+    kind: Service
+    filter: 
+    - checkout\b
+    namespace: otel-demo
+  - id: productcatalog-pod-2
+    kind: Pod
+    namespace: otel-demo
+    filter:
+      - product-catalog-.*
+  - id: checkout-pod-2
+    kind: Pod
+    namespace: otel-demo
+    filter:
+      - checkout-.*
+aliases:
+  - - flagd-pod-1
+    - flagd-service-1
+  - - frontend-service-1
+    - frontend-pod-1
+  - - recommendation-service-1
+    - recommendation-pod-1
+  - - productcatalog-service-2
+    - productcatalog-pod-2
+    - products-endpoint-2
+  - - checkout-service-2
+    - checkout-pod-2
+propagations:
+  - source: flagd-service-1
+    target: recommendation-pod-1
+    condition: flagd enables injection
+    effect: recommendation pod crashLoopBack Failure
+  - source: recommendation-pod-1
+    target: recommendation-service-1
+    condition: recommendation pod crashLoopBack Failure
+    effect: recommendation service Error Rate is Above Threshold
+  - source: recommendation-service-1
+    target: frontend-service-1
+    condition: recommendation service Error Rate is Above Threshold
+    effect: frontend service Error Rate is Above Threshold
+  - source: flagd-config-1
+    target: flagd-service-1
+    condition: flagd-config ConfigMap ProductCatalog feature flag set and recommendationCacheFailure feature flag set
+    effect: flagd enables injection
+  - source: flagd-service-1
+    target: products-endpoint-2
+    condition: flagd enables injection
+    effect: products endpoint GetProduct product id OLJCESPC7Z requests returning errors
+  - source: products-endpoint-2
+    target: productcatalog-service-2
+    condition: products endpoint GetProduct product id OLJCESPC7Z requests returning errors
+    effect: productcatalog service Error Rate is Above Threshold
+  - source: productcatalog-service-2
+    target: checkout-service-2
+    condition: productcatalog service Error Rate is Above Threshold
+    effect: checkout service Error Rate is Above Threshold
+  - source: checkout-service-2
+    target: frontend-service-1
+    condition: checkout service Error Rate is Above Threshold
+    effect: frontend service Error Rate is Above Threshold
+recommended_actions:
+  - solution:
+      id: Disable_recommendationCacheFailure_feature_flag
+      actions:
+        - Disable recommendationCacheFailure feature flag
+  - solution:
+      id: Increase_Memory_Allocation
+      actions:
+        - Increase Memory Allocation
+  - solution:
+      id: Disable_ProductCatalogFailure_feature_flag
+      actions:
+        - Disable ProductCatalogFailure feature flag
+  - solution:
+      id: Block_traffic_for_product_id_OLJCESPC7Z
+      actions:
+        - Block traffic for product id OLJCESPC7Z
+      
