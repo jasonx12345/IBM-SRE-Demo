@@ -13,12 +13,42 @@
   <a class="skip" href="#main">Skip to report</a>
   <header class="topbar">
     <a class="brand" href="/">Alert Coverage<span> / IBM ITBench-Lite</span></a>
-    <a href="/docs/COVERAGE.md" target="_blank" rel="noopener">Method &amp; source ↗</a>
+    <nav class="top-links" aria-label="Project links">
+      <a href="https://www.youtube.com/watch?v=Yr1aocCnVc0" target="_blank" rel="noopener">Video walkthrough ↗</a>
+      <a href="https://github.com/jasonx12345/IBM-SRE-Demo" target="_blank" rel="noopener">GitHub repo ↗</a>
+      <a href="/docs/COVERAGE.md" target="_blank" rel="noopener">Method &amp; limits ↗</a>
+    </nav>
   </header>
   <main id="main">
+    <section class="project-intro" aria-labelledby="project-title">
+      <p class="eyebrow">THE PROJECT IN BRIEF</p>
+      <h1 id="project-title">Checks whether the warnings IBM Research expected during its test failures actually showed up.</h1>
+      <p><strong>What this is:</strong> IBM Research deliberately caused failures in test systems and published the warnings it expected. I built a report that checks those expectations against the warnings recorded during each test. It shows what appeared, what was not seen, and what the saved data cannot tell us.</p>
+      <p><strong>Why it matters for SRE:</strong> Alerts that fail to appear when they should can leave outages unnoticed. This checks whether the expected warnings showed up in these tests.</p>
+      <div class="intro-detail">
+        <section aria-labelledby="how-title">
+          <h2 id="how-title">How it works</h2>
+          <ul>
+            <li>IBM's public ITBench-Lite data declares which alerts should fire in each of 35 fault experiments.</li>
+            <li>I wrote the matching logic that checks the alert snapshots against those declarations and labels each expected alert observed, not observed, or unknown.</li>
+            <li>The second, local lab replays 37 alert episodes from two experiments to test whether removing noisy alerts together creates blind spots.</li>
+          </ul>
+        </section>
+        <aside class="findings" aria-labelledby="findings-title">
+          <h2 id="findings-title">Key findings</h2>
+          <ul>
+            <li>35 public experiments audited.</li>
+            <li>The retirement lab uses 37 alert episodes normalized from 82 snapshots.</li>
+            <li>Removing both frontend-proxy warning scopes removes six episodes and leaves the overload experiment with no ground-truth-linked warning.</li>
+            <li>Keeping the proxy error-rate scope repairs both outcomes.</li>
+          </ul>
+        </aside>
+      </div>
+      <p class="scope-note">This is a test-quality report on public IBM Research data, not IBM production telemetry. It makes no novelty claim.</p>
+    </section>
     <div class="intro">
       <p class="eyebrow">SRE EXPERIMENT REPORT</p>
-      <h1>Did the expected warnings appear?</h1>
+      <h2>Did the expected warnings appear?</h2>
       <p>IBM Research deliberately injected faults into test systems. This report checks each expected alert against the published alert snapshots.</p>
     </div>
     <div id="error" class="error" role="alert" hidden></div>

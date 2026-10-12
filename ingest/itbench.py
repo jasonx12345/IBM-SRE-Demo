@@ -112,7 +112,6 @@ def normalize(raw=RAW):
     for number, title in SCENARIOS.items():
         scenario = f"Scenario-{number}"
         paths = sorted(raw.glob(f"{scenario}/alerts/alerts_at_*.json"))
-        # Read only files that have been checked against the manifest.
         listed = {item["local_path"] for item in manifest["files"]}
         if f"{scenario}/ground_truth.yaml" not in listed:
             raise ValueError("Ground truth must be present in the verified manifest.")
