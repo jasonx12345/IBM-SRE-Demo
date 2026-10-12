@@ -23,51 +23,51 @@
     <section class="project-intro" aria-labelledby="project-title">
       <p class="eyebrow">THE PROJECT IN BRIEF</p>
       <h1 id="project-title">Checks whether the warnings IBM Research expected during its test failures actually showed up.</h1>
-      <p><strong>What this is:</strong> IBM Research deliberately caused failures in test systems and published the warnings it expected. I built a report that checks those expectations against the warnings recorded during each test. It shows what appeared, what was not seen, and what the saved data cannot tell us.</p>
-      <p><strong>Why it matters for SRE:</strong> Alerts that fail to appear when they should can leave outages unnoticed. This checks whether the expected warnings showed up in these tests.</p>
+      <p><strong>What this is:</strong> IBM Research ran tests where it made a system fail on purpose. For each test, IBM listed the warnings that should appear. My report compares that list with the warnings IBM recorded, so you can see which ones showed up and which need a closer look.</p>
+      <p><strong>Why it matters:</strong> If a warning never appears, the people keeping a service running might miss a real outage. This project checks for that gap in IBM's test data.</p>
       <div class="intro-detail">
         <section aria-labelledby="how-title">
           <h2 id="how-title">How it works</h2>
           <ul>
-            <li>IBM's public ITBench-Lite data declares which alerts should fire in each of 35 fault experiments.</li>
-            <li>I wrote the matching logic that checks the alert snapshots against those declarations and labels each expected alert observed, not observed, or unknown.</li>
-            <li>The second, local lab replays 37 alert episodes from two experiments to test whether removing noisy alerts together creates blind spots.</li>
+            <li>IBM's public ITBench-Lite data says which warnings should appear in each of 35 tests.</li>
+            <li>I compare that list with IBM's saved warning records. Each expected warning is marked <strong>observed</strong> (found), <strong>not observed</strong> (not found), or <strong>unknown</strong> (the records do not give a clear answer).</li>
+            <li>A second, local lab replays 37 periods when warnings were active across two tests. It asks: if we remove several noisy warnings, would we also lose a useful one?</li>
           </ul>
         </section>
         <aside class="findings" aria-labelledby="findings-title">
           <h2 id="findings-title">Key findings</h2>
           <ul>
-            <li>35 public experiments audited.</li>
-            <li>The retirement lab uses 37 alert episodes normalized from 82 snapshots.</li>
-            <li>Removing both frontend-proxy warning scopes removes six episodes and leaves the overload experiment with no ground-truth-linked warning.</li>
-            <li>Keeping the proxy error-rate scope repairs both outcomes.</li>
+            <li>I checked 35 public IBM tests.</li>
+            <li>The second lab groups 82 saved warning snapshots into 37 periods when warnings were active.</li>
+            <li>Removing both groups of frontend-proxy warnings removes six of those periods. In the overload test, no warning tied to the known failure remains.</li>
+            <li>Keeping the proxy error-rate warning group avoids both problems.</li>
           </ul>
         </aside>
       </div>
-      <p class="scope-note">This is a test-quality report on public IBM Research data, not IBM production telemetry. It makes no novelty claim.</p>
+      <p class="scope-note">This checks IBM Research's public test data, not alerts from IBM's live services. I am not claiming to have invented alert checking.</p>
     </section>
     <div class="intro">
       <p class="eyebrow">SRE EXPERIMENT REPORT</p>
       <h2>Did the expected warnings appear?</h2>
-      <p>IBM Research deliberately injected faults into test systems. This report checks each expected alert against the published alert snapshots.</p>
+      <p>Choose a test below to see the warnings IBM expected and whether they appear in its saved records.</p>
     </div>
     <div id="error" class="error" role="alert" hidden></div>
     <section class="summary" aria-label="Coverage summary">
-      <div class="summary-card"><span>Expected alerts</span><strong id="expected">—</strong><small>Declared in ground truth</small></div>
-      <div class="summary-card good"><span>Observed</span><strong id="observed">—</strong><small>Matched firing alerts</small></div>
-      <div class="summary-card warn"><span>Not observed</span><strong id="not-observed">—</strong><small>Absent from published snapshots</small></div>
-      <div class="summary-card muted"><span>Unknown</span><strong id="unknown">—</strong><small>Insufficient comparable evidence</small></div>
+      <div class="summary-card"><span>Expected alerts</span><strong id="expected">—</strong><small>Warnings IBM said should appear</small></div>
+      <div class="summary-card good"><span>Observed</span><strong id="observed">—</strong><small>Found in the saved records</small></div>
+      <div class="summary-card warn"><span>Not observed</span><strong id="not-observed">—</strong><small>Not found in the saved records</small></div>
+      <div class="summary-card muted"><span>Unknown</span><strong id="unknown">—</strong><small>Not enough evidence to decide</small></div>
     </section>
     <section class="results" aria-labelledby="experiments-title">
       <div class="section-head">
         <div><p class="eyebrow">EXPLORE THE EVIDENCE</p><h2 id="experiments-title">Experiments <span id="scenario-count"></span></h2></div>
         <label>Show <select id="filter"><option value="all">All experiments</option><option value="not_observed">Needs review</option><option value="unknown">Unknown evidence</option></select></label>
       </div>
-      <p class="section-note">Open an experiment to see its expected alerts and a direct link to the first matching IBM snapshot.</p>
+      <p class="section-note">Open a test to see the warnings IBM expected and links to the saved records where they appeared.</p>
       <div id="scenarios" class="scenario-list" aria-live="polite"><p>Loading report…</p></div>
     </section>
     <footer>
-      <p><strong>What this means:</strong> “Not observed” means the alert was absent from the published snapshots. It does not prove a monitor failed or that nobody was paged. “Observed” does not prove a page was delivered.</p>
+      <p><strong>How to read this:</strong> “Not observed” means I could not find the warning in IBM's saved records. That does not prove the warning system failed or that nobody was notified. “Observed” means the warning was recorded; it does not prove anyone received a notification.</p>
       <p><a id="source-link" href="https://huggingface.co/datasets/ibm-research/ITBench-Lite" target="_blank" rel="noopener">IBM Research source ↗</a> · <a href="/docs/COVERAGE.md" target="_blank" rel="noopener">Matching method ↗</a> · <a href="/retirement">Earlier alert replay</a></p>
     </footer>
   </main>
