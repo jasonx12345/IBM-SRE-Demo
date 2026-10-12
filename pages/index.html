@@ -31,11 +31,12 @@
           <ul>
             <li>IBM's public ITBench-Lite data says which warnings should appear in each of 35 tests.</li>
             <li>I compare that list with IBM's saved warning records. Each expected warning is marked <strong>observed</strong> (found), <strong>not observed</strong> (not found), or <strong>unknown</strong> (the records do not give a clear answer).</li>
-            <li>A second, local lab asks: if we turn off two kinds of warnings at once, would we miss a failure that either warning could have helped us spot? It checks two recorded tests.</li>
+            <li>A separate lab, available when you run the project locally, checks whether turning off two kinds of warnings together would hide a failure. That lab is not part of this public page.</li>
           </ul>
         </section>
         <aside class="findings" aria-labelledby="findings-title">
           <h2 id="findings-title">Key findings</h2>
+          <p>The first result is from the report below. The others are from the <a href="https://github.com/jasonx12345/IBM-SRE-Demo#the-second-lab" target="_blank" rel="noopener">separate local lab</a>, which you cannot run on GitHub Pages.</p>
           <ul>
             <li>I checked 35 public IBM tests.</li>
             <li>IBM saved 82 lists of active warnings. The same warning can appear in several lists, so the lab counts each continuous run once: 37 warning runs in all.</li>
