@@ -31,16 +31,16 @@
           <ul>
             <li>IBM's public ITBench-Lite data says which warnings should appear in each of 35 tests.</li>
             <li>I compare that list with IBM's saved warning records. Each expected warning is marked <strong>observed</strong> (found), <strong>not observed</strong> (not found), or <strong>unknown</strong> (the records do not give a clear answer).</li>
-            <li>A second, local lab replays 37 periods when warnings were active across two tests. It asks: if we remove several noisy warnings, would we also lose a useful one?</li>
+            <li>A second, local lab asks: if we turn off two kinds of warnings at once, would we miss a failure that either warning could have helped us spot? It checks two recorded tests.</li>
           </ul>
         </section>
         <aside class="findings" aria-labelledby="findings-title">
           <h2 id="findings-title">Key findings</h2>
           <ul>
             <li>I checked 35 public IBM tests.</li>
-            <li>The second lab groups 82 saved warning snapshots into 37 periods when warnings were active.</li>
-            <li>Removing both groups of frontend-proxy warnings removes six of those periods. In the overload test, no warning tied to the known failure remains.</li>
-            <li>Keeping the proxy error-rate warning group avoids both problems.</li>
+            <li>IBM saved 82 lists of active warnings. The same warning can appear in several lists, so the lab counts each continuous run once: 37 warning runs in all.</li>
+            <li><strong>frontend-proxy</strong> is the service being watched. If I turn off both its “requests are slow” and “requests are failing” warnings, six warning runs disappear. In the overload test, that leaves no warning linked to the known failure.</li>
+            <li>If I keep the “requests are failing” warning, that failure still has a warning, and the other test avoids a late warning.</li>
           </ul>
         </aside>
       </div>

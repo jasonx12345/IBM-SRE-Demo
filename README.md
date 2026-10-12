@@ -32,7 +32,7 @@ Add `--download` to fetch the same public source files again. This imports the 3
 
 ## The second lab
 
-I also built a local [alert-retirement lab](http://127.0.0.1:8001/retirement). It tests whether removing noisy alerts together would have hidden warnings in two recorded experiments. It uses 37 alert episodes normalized from 82 snapshots. Removing both frontend-proxy warning scopes removes six episodes and leaves the overload experiment with no ground-truth-linked warning. Keeping the proxy error-rate scope repairs both outcomes. This replay is limited to those experiments and does not establish that a live alert rule is safe to remove. [Replay method](docs/REPLAY.md) explains the calculation.
+I also built a local [alert-retirement lab](http://127.0.0.1:8001/retirement). It asks what would happen if we turned off two kinds of warnings at once. IBM saved 82 lists of active warnings during two tests. Because the same warning can appear in several lists, the lab counts each continuous run once: 37 warning runs in all. Turning off both the slow-request and failed-request warnings for the service named `frontend-proxy` removes six runs. In the overload test, no warning linked to the known failure remains. Keeping the failed-request warning avoids that gap and a late warning in the other test. This replay covers only those two tests; it cannot prove that turning off a live warning is safe. The [replay method](docs/REPLAY.md) explains the calculation.
 
 The older, synthetic toil dashboard is at `/toil`. It is separate from the IBM data because that data lacks the human-response fields needed for toil estimates.
 
