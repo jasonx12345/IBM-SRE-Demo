@@ -24,7 +24,6 @@ def build():
     html = html.replace('href="/static/', 'href="./assets/')
     html = html.replace('src="/static/', 'src="./assets/')
     html = html.replace('href="/docs/COVERAGE.md"', 'href="./method.html"')
-    html = html.replace(' · <a href="/retirement">Earlier alert replay</a>', "")
     (OUTPUT / "index.html").write_text(html, encoding="utf-8")
 
     js = (ROOT / "ui" / "coverage.js").read_text(encoding="utf-8")

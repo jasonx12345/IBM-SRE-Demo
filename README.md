@@ -30,10 +30,6 @@ The importer uses a pinned ITBench-Lite revision. `seed/itbench-coverage/manifes
 
 Add `--download` to fetch the same public source files again. This imports the 35 SRE scenarios' ground truth and alert snapshots; it does not download their metrics, logs, or traces. See [data details](docs/COVERAGE.md) and [IBM attribution](THIRD_PARTY_NOTICES.md).
 
-## The second lab
-
-I also built a local [alert-retirement lab](http://127.0.0.1:8001/retirement). It asks what would happen if we turned off two kinds of warnings at once. IBM saved 82 lists of active warnings during two tests. Because the same warning can appear in several lists, the lab counts each continuous run once: 37 warning runs in all. Turning off both the slow-request and failed-request warnings for the service named `frontend-proxy` removes six runs. In the overload test, no warning linked to the known failure remains. Keeping the failed-request warning avoids that gap and a late warning in the other test. This replay covers only those two tests; it cannot prove that turning off a live warning is safe. The [replay method](docs/REPLAY.md) explains the calculation.
-
 The older, synthetic toil dashboard is at `/toil`. It is separate from the IBM data because that data lacks the human-response fields needed for toil estimates.
 
 ## Build and test

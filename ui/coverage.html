@@ -31,17 +31,14 @@
           <ul>
             <li>IBM's public ITBench-Lite data says which warnings should appear in each of 35 tests.</li>
             <li>I compare that list with IBM's saved warning records. Each expected warning is marked <strong>observed</strong> (found), <strong>not observed</strong> (not found), or <strong>unknown</strong> (the records do not give a clear answer).</li>
-            <li>A separate lab, available when you run the project locally, checks whether turning off two kinds of warnings together would hide a failure. That lab is not part of this public page.</li>
           </ul>
         </section>
         <aside class="findings" aria-labelledby="findings-title">
           <h2 id="findings-title">Key findings</h2>
-          <p>The first result is from the report below. The others are from the <a href="https://github.com/jasonx12345/IBM-SRE-Demo#the-second-lab" target="_blank" rel="noopener">separate local lab</a>, which you cannot run on GitHub Pages.</p>
           <ul>
             <li>I checked 35 public IBM tests.</li>
-            <li>IBM saved 82 lists of active warnings. The same warning can appear in several lists, so the lab counts each continuous run once: 37 warning runs in all.</li>
-            <li><strong>frontend-proxy</strong> is the service being watched. If I turn off both its “requests are slow” and “requests are failing” warnings, six warning runs disappear. In the overload test, that leaves no warning linked to the known failure.</li>
-            <li>If I keep the “requests are failing” warning, that failure still has a warning, and the other test avoids a late warning.</li>
+            <li>IBM listed 96 warnings it expected to appear. I found 61 in its saved records.</li>
+            <li>30 were not found. For 5, the records did not give enough information to decide.</li>
           </ul>
         </aside>
       </div>
@@ -69,7 +66,7 @@
     </section>
     <footer>
       <p><strong>How to read this:</strong> “Not observed” means I could not find the warning in IBM's saved records. That does not prove the warning system failed or that nobody was notified. “Observed” means the warning was recorded; it does not prove anyone received a notification.</p>
-      <p><a id="source-link" href="https://huggingface.co/datasets/ibm-research/ITBench-Lite" target="_blank" rel="noopener">IBM Research source ↗</a> · <a href="/docs/COVERAGE.md" target="_blank" rel="noopener">Matching method ↗</a> · <a href="/retirement">Earlier alert replay</a></p>
+      <p><a id="source-link" href="https://huggingface.co/datasets/ibm-research/ITBench-Lite" target="_blank" rel="noopener">IBM Research source ↗</a> · <a href="/docs/COVERAGE.md" target="_blank" rel="noopener">Matching method ↗</a></p>
     </footer>
   </main>
 </body>

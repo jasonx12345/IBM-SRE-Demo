@@ -86,10 +86,6 @@ def create_app(repository=None, config=None):
     def index():
         return send_from_directory(ROOT / "ui", "coverage.html")
 
-    @app.get("/retirement")
-    def retirement():
-        return send_from_directory(ROOT / "ui", "retirement.html")
-
     @app.get("/api/coverage/report")
     def coverage():
         if coverage_report is None:

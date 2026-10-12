@@ -39,7 +39,7 @@ def test_main_page_and_report_api():
     app = create_app(DemoRepository(), load_config())
     client = app.test_client()
     assert b"Did the expected warnings appear?" in client.get("/").data
-    assert b"Retire the noise" in client.get("/retirement").data
+    assert client.get("/retirement").status_code == 404
     response = client.get("/api/coverage/report")
     assert response.status_code == 200
     assert response.json["totals"]["scenarios"] == 35
